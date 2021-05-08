@@ -30,6 +30,20 @@ namespace AdminLTE1.App_Start
                 .Include("~/Content/js/adminlte.js")
                 .Include("~/Content/js/init.js"));
 
+
+            //Kendo Scripts
+            bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
+            "~/Scripts/kendo/kendo.all.min.js",
+            "~/Scripts/kendo/kendo.aspnetmvc.min.js"));
+
+            //kendo Styles
+            bundles.Add(new StyleBundle("~/Content/kendo/css").Include(
+            "~/Content/kendo/kendo.common.min.css",
+            "~/Content/kendo/kendo.Silver.min.css"));
+
+            //Tell ASP.NET bundles to allow minified files in debug mode.
+            bundles.IgnoreList.Clear();
+
 #if DEBUG
             BundleTable.EnableOptimizations = false;
 #else
