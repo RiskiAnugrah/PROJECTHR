@@ -743,6 +743,7 @@
     <Content Include="Scripts\script\Tiket\Frm_Progress_Tiket.js~RF970e07.TMP" />
     <Content Include="Scripts\script\Tiket\Frm_view_issued.js~RF11cbdf7.TMP" />
     <Content Include="Scripts\script\Tiket\Frm_view_issued.js~RF1235b5e.TMP" />
+    <Content Include="Views\Employee\Frm_view_karyawan.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -752,6 +753,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Models\DB_FINGER.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
