@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DB_FINGER" Class="DB_FINGERDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=192.168.1.10;Initial Catalog=DB_FINGER;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DB_FINGERConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.USERINFO" Member="USERINFOs">
+    <Type Name="USERINFO">
+      <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BADGENUMBER" Type="System.String" DbType="VarChar(24) NOT NULL" CanBeNull="false" />
+      <Column Name="SSN" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="GENDER" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="TITLE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="PAGER" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="BIRTHDAY" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="HIREDDAY" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="STREET" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="CITY" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="STATE" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="ZIP" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="OPHONE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="FPHONE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="VERIFICATIONMETHOD" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="DEFAULTDEPTID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="SECURITYFLAGS" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="ATT" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="INLATE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="OUTEARLY" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="OVERTIME" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="SEP" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="HOLIDAY" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="MINZU" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="PASSWORD" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="LUNCHDURATION" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="MVerifyPass" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="PHOTO" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Notes" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="privilege" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="InheritDeptSch" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="InheritDeptSchClass" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="AutoSchPlan" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="MinAutoSchInterval" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RegisterOT" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="InheritDeptRule" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="EMPRIVILEGE" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="CardNo" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_SHIFTMAP" Member="TBL_T_SHIFTMAPs">
+    <Type Name="TBL_T_SHIFTMAP">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EMP_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="START_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="END_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="SHIFT_SCH_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_EXTRACT_ABSEN" Member="TBL_T_EXTRACT_ABSENs">
+    <Type Name="TBL_T_EXTRACT_ABSEN">
+      <Column Name="PID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="USERID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NAMA" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="TANGGAL" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="[IN]" Member="IN" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="OUT" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="SHIFT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DEPARTEMEN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GROUPS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_KARYAWAN_ALL" Member="VW_KARYAWAN_ALLs">
+    <Type Name="VW_KARYAWAN_ALL">
+      <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NIK" Type="System.String" DbType="VarChar(24) NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="DEPTNAME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="GROUPS" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
