@@ -102,6 +102,14 @@ namespace AdminLTE1.Models
 				return this.GetTable<VW_KARYAWAN_ALL>();
 			}
 		}
+		
+		public System.Data.Linq.Table<VW_M_USER> VW_M_USERs
+		{
+			get
+			{
+				return this.GetTable<VW_M_USER>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.USERINFO")]
@@ -1584,6 +1592,825 @@ namespace AdminLTE1.Models
 				if ((this._GROUPS != value))
 				{
 					this._GROUPS = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_M_USER")]
+	public partial class VW_M_USER
+	{
+		
+		private int _id;
+		
+		private string _username;
+		
+		private string _password;
+		
+		private string _akses;
+		
+		private System.Nullable<int> _userinfoid;
+		
+		private System.Nullable<int> _USERID;
+		
+		private string _BADGENUMBER;
+		
+		private string _SSN;
+		
+		private string _NAME;
+		
+		private string _GENDER;
+		
+		private string _TITLE;
+		
+		private string _PAGER;
+		
+		private System.Nullable<System.DateTime> _BIRTHDAY;
+		
+		private System.Nullable<System.DateTime> _HIREDDAY;
+		
+		private string _STREET;
+		
+		private string _CITY;
+		
+		private string _STATE;
+		
+		private string _ZIP;
+		
+		private string _OPHONE;
+		
+		private string _FPHONE;
+		
+		private System.Nullable<short> _VERIFICATIONMETHOD;
+		
+		private System.Nullable<short> _DEFAULTDEPTID;
+		
+		private System.Nullable<short> _SECURITYFLAGS;
+		
+		private System.Nullable<short> _ATT;
+		
+		private System.Nullable<short> _INLATE;
+		
+		private System.Nullable<short> _OUTEARLY;
+		
+		private System.Nullable<short> _OVERTIME;
+		
+		private System.Nullable<short> _SEP;
+		
+		private System.Nullable<short> _HOLIDAY;
+		
+		private string _MINZU;
+		
+		private string _Expr1;
+		
+		private System.Nullable<short> _LUNCHDURATION;
+		
+		private string _MVerifyPass;
+		
+		private System.Data.Linq.Binary _PHOTO;
+		
+		private System.Data.Linq.Binary _Notes;
+		
+		private System.Nullable<int> _privilege;
+		
+		private System.Nullable<short> _InheritDeptSch;
+		
+		private System.Nullable<short> _InheritDeptSchClass;
+		
+		private System.Nullable<short> _AutoSchPlan;
+		
+		private System.Nullable<int> _MinAutoSchInterval;
+		
+		private System.Nullable<short> _RegisterOT;
+		
+		private System.Nullable<short> _InheritDeptRule;
+		
+		private System.Nullable<short> _EMPRIVILEGE;
+		
+		private string _CardNo;
+		
+		private string _DEPTNAME;
+		
+		public VW_M_USER()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL")]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this._id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="VarChar(50)")]
+		public string username
+		{
+			get
+			{
+				return this._username;
+			}
+			set
+			{
+				if ((this._username != value))
+				{
+					this._username = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(50)")]
+		public string password
+		{
+			get
+			{
+				return this._password;
+			}
+			set
+			{
+				if ((this._password != value))
+				{
+					this._password = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_akses", DbType="VarChar(50)")]
+		public string akses
+		{
+			get
+			{
+				return this._akses;
+			}
+			set
+			{
+				if ((this._akses != value))
+				{
+					this._akses = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userinfoid", DbType="Int")]
+		public System.Nullable<int> userinfoid
+		{
+			get
+			{
+				return this._userinfoid;
+			}
+			set
+			{
+				if ((this._userinfoid != value))
+				{
+					this._userinfoid = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERID", DbType="Int")]
+		public System.Nullable<int> USERID
+		{
+			get
+			{
+				return this._USERID;
+			}
+			set
+			{
+				if ((this._USERID != value))
+				{
+					this._USERID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BADGENUMBER", DbType="VarChar(24)")]
+		public string BADGENUMBER
+		{
+			get
+			{
+				return this._BADGENUMBER;
+			}
+			set
+			{
+				if ((this._BADGENUMBER != value))
+				{
+					this._BADGENUMBER = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SSN", DbType="VarChar(20)")]
+		public string SSN
+		{
+			get
+			{
+				return this._SSN;
+			}
+			set
+			{
+				if ((this._SSN != value))
+				{
+					this._SSN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="VarChar(40)")]
+		public string NAME
+		{
+			get
+			{
+				return this._NAME;
+			}
+			set
+			{
+				if ((this._NAME != value))
+				{
+					this._NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GENDER", DbType="VarChar(8)")]
+		public string GENDER
+		{
+			get
+			{
+				return this._GENDER;
+			}
+			set
+			{
+				if ((this._GENDER != value))
+				{
+					this._GENDER = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TITLE", DbType="VarChar(20)")]
+		public string TITLE
+		{
+			get
+			{
+				return this._TITLE;
+			}
+			set
+			{
+				if ((this._TITLE != value))
+				{
+					this._TITLE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PAGER", DbType="VarChar(20)")]
+		public string PAGER
+		{
+			get
+			{
+				return this._PAGER;
+			}
+			set
+			{
+				if ((this._PAGER != value))
+				{
+					this._PAGER = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BIRTHDAY", DbType="DateTime")]
+		public System.Nullable<System.DateTime> BIRTHDAY
+		{
+			get
+			{
+				return this._BIRTHDAY;
+			}
+			set
+			{
+				if ((this._BIRTHDAY != value))
+				{
+					this._BIRTHDAY = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HIREDDAY", DbType="DateTime")]
+		public System.Nullable<System.DateTime> HIREDDAY
+		{
+			get
+			{
+				return this._HIREDDAY;
+			}
+			set
+			{
+				if ((this._HIREDDAY != value))
+				{
+					this._HIREDDAY = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STREET", DbType="VarChar(80)")]
+		public string STREET
+		{
+			get
+			{
+				return this._STREET;
+			}
+			set
+			{
+				if ((this._STREET != value))
+				{
+					this._STREET = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CITY", DbType="VarChar(2)")]
+		public string CITY
+		{
+			get
+			{
+				return this._CITY;
+			}
+			set
+			{
+				if ((this._CITY != value))
+				{
+					this._CITY = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATE", DbType="VarChar(2)")]
+		public string STATE
+		{
+			get
+			{
+				return this._STATE;
+			}
+			set
+			{
+				if ((this._STATE != value))
+				{
+					this._STATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ZIP", DbType="VarChar(12)")]
+		public string ZIP
+		{
+			get
+			{
+				return this._ZIP;
+			}
+			set
+			{
+				if ((this._ZIP != value))
+				{
+					this._ZIP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OPHONE", DbType="VarChar(20)")]
+		public string OPHONE
+		{
+			get
+			{
+				return this._OPHONE;
+			}
+			set
+			{
+				if ((this._OPHONE != value))
+				{
+					this._OPHONE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FPHONE", DbType="VarChar(20)")]
+		public string FPHONE
+		{
+			get
+			{
+				return this._FPHONE;
+			}
+			set
+			{
+				if ((this._FPHONE != value))
+				{
+					this._FPHONE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VERIFICATIONMETHOD", DbType="SmallInt")]
+		public System.Nullable<short> VERIFICATIONMETHOD
+		{
+			get
+			{
+				return this._VERIFICATIONMETHOD;
+			}
+			set
+			{
+				if ((this._VERIFICATIONMETHOD != value))
+				{
+					this._VERIFICATIONMETHOD = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEFAULTDEPTID", DbType="SmallInt")]
+		public System.Nullable<short> DEFAULTDEPTID
+		{
+			get
+			{
+				return this._DEFAULTDEPTID;
+			}
+			set
+			{
+				if ((this._DEFAULTDEPTID != value))
+				{
+					this._DEFAULTDEPTID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SECURITYFLAGS", DbType="SmallInt")]
+		public System.Nullable<short> SECURITYFLAGS
+		{
+			get
+			{
+				return this._SECURITYFLAGS;
+			}
+			set
+			{
+				if ((this._SECURITYFLAGS != value))
+				{
+					this._SECURITYFLAGS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATT", DbType="SmallInt")]
+		public System.Nullable<short> ATT
+		{
+			get
+			{
+				return this._ATT;
+			}
+			set
+			{
+				if ((this._ATT != value))
+				{
+					this._ATT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INLATE", DbType="SmallInt")]
+		public System.Nullable<short> INLATE
+		{
+			get
+			{
+				return this._INLATE;
+			}
+			set
+			{
+				if ((this._INLATE != value))
+				{
+					this._INLATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OUTEARLY", DbType="SmallInt")]
+		public System.Nullable<short> OUTEARLY
+		{
+			get
+			{
+				return this._OUTEARLY;
+			}
+			set
+			{
+				if ((this._OUTEARLY != value))
+				{
+					this._OUTEARLY = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OVERTIME", DbType="SmallInt")]
+		public System.Nullable<short> OVERTIME
+		{
+			get
+			{
+				return this._OVERTIME;
+			}
+			set
+			{
+				if ((this._OVERTIME != value))
+				{
+					this._OVERTIME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEP", DbType="SmallInt")]
+		public System.Nullable<short> SEP
+		{
+			get
+			{
+				return this._SEP;
+			}
+			set
+			{
+				if ((this._SEP != value))
+				{
+					this._SEP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HOLIDAY", DbType="SmallInt")]
+		public System.Nullable<short> HOLIDAY
+		{
+			get
+			{
+				return this._HOLIDAY;
+			}
+			set
+			{
+				if ((this._HOLIDAY != value))
+				{
+					this._HOLIDAY = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MINZU", DbType="VarChar(8)")]
+		public string MINZU
+		{
+			get
+			{
+				return this._MINZU;
+			}
+			set
+			{
+				if ((this._MINZU != value))
+				{
+					this._MINZU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Expr1", DbType="VarChar(20)")]
+		public string Expr1
+		{
+			get
+			{
+				return this._Expr1;
+			}
+			set
+			{
+				if ((this._Expr1 != value))
+				{
+					this._Expr1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LUNCHDURATION", DbType="SmallInt")]
+		public System.Nullable<short> LUNCHDURATION
+		{
+			get
+			{
+				return this._LUNCHDURATION;
+			}
+			set
+			{
+				if ((this._LUNCHDURATION != value))
+				{
+					this._LUNCHDURATION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MVerifyPass", DbType="VarChar(10)")]
+		public string MVerifyPass
+		{
+			get
+			{
+				return this._MVerifyPass;
+			}
+			set
+			{
+				if ((this._MVerifyPass != value))
+				{
+					this._MVerifyPass = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PHOTO", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary PHOTO
+		{
+			get
+			{
+				return this._PHOTO;
+			}
+			set
+			{
+				if ((this._PHOTO != value))
+				{
+					this._PHOTO = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Notes", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Notes
+		{
+			get
+			{
+				return this._Notes;
+			}
+			set
+			{
+				if ((this._Notes != value))
+				{
+					this._Notes = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_privilege", DbType="Int")]
+		public System.Nullable<int> privilege
+		{
+			get
+			{
+				return this._privilege;
+			}
+			set
+			{
+				if ((this._privilege != value))
+				{
+					this._privilege = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InheritDeptSch", DbType="SmallInt")]
+		public System.Nullable<short> InheritDeptSch
+		{
+			get
+			{
+				return this._InheritDeptSch;
+			}
+			set
+			{
+				if ((this._InheritDeptSch != value))
+				{
+					this._InheritDeptSch = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InheritDeptSchClass", DbType="SmallInt")]
+		public System.Nullable<short> InheritDeptSchClass
+		{
+			get
+			{
+				return this._InheritDeptSchClass;
+			}
+			set
+			{
+				if ((this._InheritDeptSchClass != value))
+				{
+					this._InheritDeptSchClass = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AutoSchPlan", DbType="SmallInt")]
+		public System.Nullable<short> AutoSchPlan
+		{
+			get
+			{
+				return this._AutoSchPlan;
+			}
+			set
+			{
+				if ((this._AutoSchPlan != value))
+				{
+					this._AutoSchPlan = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MinAutoSchInterval", DbType="Int")]
+		public System.Nullable<int> MinAutoSchInterval
+		{
+			get
+			{
+				return this._MinAutoSchInterval;
+			}
+			set
+			{
+				if ((this._MinAutoSchInterval != value))
+				{
+					this._MinAutoSchInterval = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RegisterOT", DbType="SmallInt")]
+		public System.Nullable<short> RegisterOT
+		{
+			get
+			{
+				return this._RegisterOT;
+			}
+			set
+			{
+				if ((this._RegisterOT != value))
+				{
+					this._RegisterOT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InheritDeptRule", DbType="SmallInt")]
+		public System.Nullable<short> InheritDeptRule
+		{
+			get
+			{
+				return this._InheritDeptRule;
+			}
+			set
+			{
+				if ((this._InheritDeptRule != value))
+				{
+					this._InheritDeptRule = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMPRIVILEGE", DbType="SmallInt")]
+		public System.Nullable<short> EMPRIVILEGE
+		{
+			get
+			{
+				return this._EMPRIVILEGE;
+			}
+			set
+			{
+				if ((this._EMPRIVILEGE != value))
+				{
+					this._EMPRIVILEGE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CardNo", DbType="VarChar(20)")]
+		public string CardNo
+		{
+			get
+			{
+				return this._CardNo;
+			}
+			set
+			{
+				if ((this._CardNo != value))
+				{
+					this._CardNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEPTNAME", DbType="VarChar(30)")]
+		public string DEPTNAME
+		{
+			get
+			{
+				return this._DEPTNAME;
+			}
+			set
+			{
+				if ((this._DEPTNAME != value))
+				{
+					this._DEPTNAME = value;
 				}
 			}
 		}

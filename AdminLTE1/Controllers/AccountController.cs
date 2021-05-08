@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AdminLTE1.Models;
+using System.Web.Security;
 
 namespace AdminLTE1.Controllers
 {
@@ -20,22 +21,21 @@ namespace AdminLTE1.Controllers
         [HttpPost]
         public ActionResult GetUser(string pnrp = "", string password = "")
         {
-            LTS_DB_HRIS_TIKETDataContext i_obj_ctx = new LTS_DB_HRIS_TIKETDataContext();
+            DB_FINGERDataContext i_obj_ctx = new DB_FINGERDataContext();
 
 
-            if (ADCekValidUser(pnrp, password) == true)
-            {
-                var list_user = i_obj_ctx.VW_M_USER_APPs.Where(u => u.NRP.Equals(pnrp.Substring(1, pnrp.Length - 1))).ToList();
+          
+                var list_user = i_obj_ctx.VW_M_USERs.Where(u => u.username.Equals(pnrp.Substring(1, pnrp.Length - 1))).ToList();
 
                 if (list_user.Count() > 0)
                 {
                     foreach (var data in list_user)
                     {
 
-                        Session["NRP"] = data.NRP;
+                        Session["USERNAME"] = data.username;
                         Session["NAMA"] = data.NAME;
-                        Session["DEPT"] = data.DEPT_CODE;
-                        Session["DEPT_DESC"] = data.DEPT_DESC.ToString().ToUpper();
+                        Session["DEPT"] = data.DEPTNAME;
+                        Session["DEPT_DESC"] = data.DEPTNAME.ToString().ToUpper();
 
                     }
 
@@ -47,7 +47,7 @@ namespace AdminLTE1.Controllers
                     Response.Write("<script> alert('Login Failed');</script>");
 
                 }
-            }
+            
 
             return RedirectToAction("Index", "LOGIN");
 
@@ -66,11 +66,11 @@ namespace AdminLTE1.Controllers
         }
 
 
-        public ActionResult ReadAkses(string nrp)
+        public ActionResult ReadAkses(string username)
         {
             try
             {
-                var list_akses = p_ctx_db.VW_M_USER_APPs.Where(u => u.NRP.Equals(nrp)).ToList();
+                var list_akses = dbctx.VW_M_USERs.Where(u => u.username.Equals(username)).ToList();
                 return Json(new { Total = list_akses.Count(), Data = list_akses });
             }
 

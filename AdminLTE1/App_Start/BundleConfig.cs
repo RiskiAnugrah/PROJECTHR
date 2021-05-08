@@ -7,6 +7,9 @@ namespace AdminLTE1.App_Start
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+                       "~/Scripts/jquery-{version}.js"));
+
             bundles.Add(new StyleBundle("~/Bundles/css")
                 .Include("~/Content/css/bootstrap.min.css", new CssRewriteUrlTransformAbsolute())
                 .Include("~/Content/css/bootstrap-select.css")

@@ -85,10 +85,10 @@
 
      function ceklogin() {
          if ($("#UserName").val() == "") {
-             bootbox.alert("Username nya diisi ya..")
+             alert("Username nya diisi ya..")
          }
          else if ($("#Password").val() == "") {
-             bootbox.alert("Kok passwordnya dikosongi?")
+             alert("Kok passwordnya dikosongi?")
          }
          else {
              $.ajax({
@@ -100,8 +100,9 @@
                      password: $("#Password").val(),
                  }),
                  success: function (data) {
-                     //alert($("#UserName").val());
-                     location.reload();
+          
+                 
+                     location.href = $("#urlPath").val() + "/HOME/Index";
                  }
                 
 
@@ -109,89 +110,19 @@
          }
      }
 
-     function cekakses() {
-         var ds_akses = new kendo.data.DataSource({
-             type: "json",
-             transport: {
-                 read: {
-                     url: $("#urlPath").val() + "/Login/ReadAkses",
-                     contentType: "application/json",
-                     type: "POST"
-                 },
-                 parameterMap: function (data, operation) {
-                     if (operation == "read") {
-                         data.nrp = "@Session["NRP"]";
-                             } else if (operation == "create") {
-                             }
-                             else if (operation == "update") {
-                             }
-                             return kendo.stringify(data)
-                         }
-                     },
-                     schema: {
-                         data: "Data",
-                         total: "Total"
-                     },
-         });
 
 
-                 $("#txtakses").kendoDropDownList({
-                     dataSource: ds_akses,
-                     dataTextField: "AKSES_DESC",
-                     dataValueField: "AKSES_PID",
-                     select: function (e) {
-                         var dataItem = this.dataItem(e.item.index());
-                     }
-                 });
-             }
 
-
-             function ceksession() {
-             if ("@Session["NAMA"]" === "") {
-                document.getElementById("profile").style.display = "none";
-                document.getElementById("btnlogin").textContent = "LOGIN"
-            }
-            else  {
-                document.getElementById("UserName").disabled = "TRUE";
-
-                document.getElementById("Password").disabled = "TRUE"
-                document.getElementById("sldomain").disabled = "TRUE"
-                document.getElementById("profile").style.visibility = "visible";
-                document.getElementById("btnlogin").textContent = "SELECT PROFILE"
-
-                
-                cekakses();
-               
-            }
-        }
-
-
-        function Createaksessession() {
-            var id_desc = $("#txtakses").val();
-            var desc = $("#txtakses").data("kendoDropDownList").text();
-
-            $.ajax({
-                url: $("#urlPath").val() + "/Login/GetAkses",
-                type: "POST",
-                contentType: "application/json",
-                data: JSON.stringify({
-                    id_desc: id_desc,
-                    desc: desc,
-                }),
-                success: function (data) {
-                    location.href = $("#urlPath").val() + "/REQUEST/Index";
-                }
-            });
-        }
+       
 
         function execlogin() {
-            if (document.getElementById("btnlogin").textContent == "LOGIN") {
+            
                 ceklogin();
-            }
+           
 
-            else if (document.getElementById("btnlogin").textContent == "SELECT PROFILE") {
-                Createaksessession();
-            }
+            
+               
+            
         }
 
 </script>
