@@ -92,7 +92,7 @@
          }
          else {
              $.ajax({
-                 url: $("#urlPath").val() + "/LOGIN/GetUser",
+                 url: $("#urlPath").val() + "/ACCOUNT/GetUser",
                  type: "POST",
                  contentType: "application/json",
                  data: JSON.stringify({
@@ -102,7 +102,7 @@
                  success: function (data) {
           
                  
-                     location.href = $("#urlPath").val() + "/HOME/Index";
+                     location.href = $("#urlPath").val() + "/employee/Frm_View_karyawan";
                  }
                 
 

@@ -1,8 +1,122 @@
 ﻿
-@{
-    ViewBag.Title = "Frm_view_karyawan";
-}
 
-<h2>Frm_view_karyawan</h2>
 
 <div id="dv_grid" style="background-color:#f6f6f6;margin-top:5px;width:97%" class="col-md-12"> </div>
+
+
+<script>
+    $(document).ready(function () {
+        fn_load_grid();
+    });
+
+    function fn_load_grid() {
+        $("#dv_grid").kendoGrid({
+            dataSource: {
+                batch: true,
+                transport: {
+                    read: {
+                        url: $("#urlPath").val() + "/Employee/listemployee",
+                        contentType: "application/json",
+                        type: "POST"
+                    },
+                    parameterMap: function (data, operation) {
+                        if (operation == "read") {
+                            data.TIKET_TAKE_UP_DOK = "" + $("#id_dok").val() + "";
+                            //data.s_tipe = 'KODE';
+                        } else if (operation == "create") {
+
+                        } else if (operation == "update") {
+
+                        } else if (operation == "destroy") {
+
+                        }
+                        return kendo.stringify(data)
+                    }
+                },
+                error: function (e) {
+                    if (e.errors) {
+                        alert(e.errors);
+                        this.cancelChanges();
+                    }
+                },
+                schema: {
+                    data: "Data",
+                    total: "Total",
+                    model: {
+                        id: "USER_ID",
+                        fields: {
+                            NIK: { type: "string", editable: false },
+                            NAME: { type: "string", editable: false },
+                            DEPT_NAME: { type: "string", editable: false },
+                            GROUPS: { type: "string", editable: false },
+                           
+                        }
+                    }
+
+                },
+                pageSize: 100,
+                serverPaging: true,
+                serverFiltering: true,
+                serverSorting: false,
+
+
+            },
+            height: 600,
+            filterable: true,
+            sortable: true,
+            editable: "inline",
+            selectable: "multiple",
+            pageable: {
+                refresh: true,
+                buttonCount: 10,
+                input: true,
+                pageSizes: [50, 100, 200, 300, 500, 1000, 100000],
+                info: true,
+                messages: {
+                }
+            },
+            // toolbar: [{ text: "View", click: addIssue }],
+            columns: [
+
+
+
+              //{
+              //   // field: "PENUMPANG_DESC",
+              //    //title: "<center>TIPE PENUMPANG</center>",
+              //    width: 10,
+              //    template: '<div style="text-align:center;"><input type="checkbox"  class="chkbx" /></div>',
+              //    headerTemplate: '<div style="text-align:center;"><input type="checkbox" id="SelectAll" /></div>'
+              //},
+              { command: [{ text: "RESCHEDULE", click: cufn_reschedule }, { text: " BATALKAN ", click: cufn_batalkan }], width: 30 },
+              {
+                  field: "NIK",
+                  title: "<center>NIK</center>",
+                  width: 20
+
+              },
+              {
+                  field: "NAMA",
+                  title: "<center>NAMA</center>",
+                  width: 55
+
+              },
+              {
+                  field: "DEPTNAME",
+                  title: "<center>DEPARTEMEN</center>",
+                  width: 50,
+                 
+              },
+              {
+                  field: "GROUPS",
+                  title: "<center>DARI</center>",
+                  width: 40,
+  
+              }
+          
+
+
+
+            ]
+        });
+    }
+</script>

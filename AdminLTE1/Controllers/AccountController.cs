@@ -90,7 +90,7 @@ namespace AdminLTE1.Controllers
             Session["akses_pid"] = id_desc;
             Session["akses_desc"] = desc;
 
-            return RedirectToAction("Index", "REQUEST");
+            return RedirectToAction("Frm_view_karyawan", "EMPLOYEE");
 
 
         }
