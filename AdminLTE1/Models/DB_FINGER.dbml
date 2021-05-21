@@ -123,4 +123,64 @@
       <Column Name="DEPTNAME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.VW_DEPARTMENT" Member="VW_DEPARTMENTs">
+    <Type Name="VW_DEPARTMENT">
+      <Column Name="DEPTID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DEPTNAME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="SUPDEPTID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="InheritParentSch" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="InheritDeptSch" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="InheritDeptSchClass" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="AutoSchPlan" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="InLate" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="OutEarly" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="InheritDeptRule" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="MinAutoSchInterval" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RegisterOT" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="DefaultSchId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ATT" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Holiday" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="OverTime" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_MASTER_SALARY" Member="VW_MASTER_SALARies">
+    <Type Name="VW_MASTER_SALARY">
+      <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NIK" Type="System.String" DbType="VarChar(24) NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="DEPTNAME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="GROUPS" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ID_SALARY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SALARY" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="SALARY_NOTES" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_KARYAWAN_AUTOCOMPLETE" Member="VW_KARYAWAN_AUTOCOMPLETEs">
+    <Type Name="VW_KARYAWAN_AUTOCOMPLETE">
+      <Column Name="VALUE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_SALARY" Member="TBL_SALARies">
+    <Type Name="TBL_SALARY">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="emp_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="amount" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="notes" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="active_date_start" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="active_date_end" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="input_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="input_by" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.cusp_insert_upah" Method="cusp_insert_upah">
+    <Parameter Name="idemp" Type="System.Int32" DbType="Int" />
+    <Parameter Name="tanggal_awal" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="tanggal_akhir" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="upah" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="user" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.EXTRACT_DATA_ABSEN" Method="EXTRACT_DATA_ABSEN">
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

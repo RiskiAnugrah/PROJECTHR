@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "SETTING UPAH";
+    ViewBag.pathParent = Url.Content("~").Substring(0, Url.Content("~").Length - 1);
+}
+
+<input type="hidden" id="urlPath" name="urlPath" value="@ViewBag.pathParent" />
+<div id="dv_add"></div>
+<button type="button" class="btn btn-primary" onclick="tambahUpah()">Input Setting Upah</button>
+
+<script>
+    $(document).ready(function () {
+        $("#dv_add").kendoWindow({
+            width: 700,
+            height: 635,
+            iframe: true,
+            modal: true,
+            resizable: false,
+            close: onModalClose,
+            visible: false
+        }).data("kendoWindow");
+
+    });
+
+
+    function onModalClose() {
+       
+    }
+
+
+    function tambahUpah() {
+        var win = $("#dv_add").data("kendoWindow");
+        win.title("INPUT UPAH");
+        win.refresh({ url: $("#urlPath").val() + '/PAYROLL/frm_inputUpah' });
+
+        win.center().open();
+    }
+</script>

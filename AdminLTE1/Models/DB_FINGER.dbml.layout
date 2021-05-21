@@ -32,5 +32,29 @@
         <elementListCompartment Id="0eeb1799-0dea-4271-825f-ac7e4e3e9396" absoluteBounds="0.51499999999999968, 1.585, 1.9700000000000002, 8.9029541015625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="b14bd346-4fd3-4175-9555-a5a09c23ed25" isExpanded="false" absoluteBounds="4.75, 1.125, 2, 0.45">
+      <DataClassMoniker Name="/DB_FINGERDataContext/VW_DEPARTMENT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="789173fb-7c33-462d-9afa-d6d8f1466c5b" absoluteBounds="4.765, 1.585, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="229a36fd-4053-4f86-b237-6ebc9253bf12" isExpanded="false" absoluteBounds="0.5, 1.75, 2, 0.45">
+      <DataClassMoniker Name="/DB_FINGERDataContext/VW_MASTER_SALARY" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1f1168b9-ea28-4252-b3eb-2403197f1c97" absoluteBounds="0.51500000000000012, 2.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5db5a421-c971-4d14-9747-a5409f58a2b0" isExpanded="false" absoluteBounds="2.625, 1.75, 2, 0.45">
+      <DataClassMoniker Name="/DB_FINGERDataContext/VW_KARYAWAN_AUTOCOMPLETE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="481f2806-96b2-4a83-a35b-3221fcfa57cc" absoluteBounds="2.64, 2.21, 1.9700000000000002, 0.44169108072916669" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c73292ce-aad3-4ed6-a638-378968a88123" isExpanded="false" absoluteBounds="4.75, 1.75, 2, 0.45">
+      <DataClassMoniker Name="/DB_FINGERDataContext/TBL_SALARY" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5a8a611e-e231-4dcd-9fb5-5cb865dd8fd2" absoluteBounds="4.765, 2.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

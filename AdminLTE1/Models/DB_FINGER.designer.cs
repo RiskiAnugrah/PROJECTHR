@@ -39,6 +39,9 @@ namespace AdminLTE1.Models
     partial void InsertTBL_T_EXTRACT_ABSEN(TBL_T_EXTRACT_ABSEN instance);
     partial void UpdateTBL_T_EXTRACT_ABSEN(TBL_T_EXTRACT_ABSEN instance);
     partial void DeleteTBL_T_EXTRACT_ABSEN(TBL_T_EXTRACT_ABSEN instance);
+    partial void InsertTBL_SALARY(TBL_SALARY instance);
+    partial void UpdateTBL_SALARY(TBL_SALARY instance);
+    partial void DeleteTBL_SALARY(TBL_SALARY instance);
     #endregion
 		
 		public DB_FINGERDataContext() : 
@@ -109,6 +112,52 @@ namespace AdminLTE1.Models
 			{
 				return this.GetTable<VW_M_USER>();
 			}
+		}
+		
+		public System.Data.Linq.Table<VW_DEPARTMENT> VW_DEPARTMENTs
+		{
+			get
+			{
+				return this.GetTable<VW_DEPARTMENT>();
+			}
+		}
+		
+		public System.Data.Linq.Table<VW_MASTER_SALARY> VW_MASTER_SALARies
+		{
+			get
+			{
+				return this.GetTable<VW_MASTER_SALARY>();
+			}
+		}
+		
+		public System.Data.Linq.Table<VW_KARYAWAN_AUTOCOMPLETE> VW_KARYAWAN_AUTOCOMPLETEs
+		{
+			get
+			{
+				return this.GetTable<VW_KARYAWAN_AUTOCOMPLETE>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBL_SALARY> TBL_SALARies
+		{
+			get
+			{
+				return this.GetTable<TBL_SALARY>();
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.cusp_insert_upah")]
+		public int cusp_insert_upah([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idemp, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> tanggal_awal, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> tanggal_akhir, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(18,2)")] System.Nullable<decimal> upah, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string user)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idemp, tanggal_awal, tanggal_akhir, upah, user);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.EXTRACT_DATA_ABSEN")]
+		public int EXTRACT_DATA_ABSEN()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((int)(result.ReturnValue));
 		}
 	}
 	
@@ -2412,6 +2461,713 @@ namespace AdminLTE1.Models
 				{
 					this._DEPTNAME = value;
 				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_DEPARTMENT")]
+	public partial class VW_DEPARTMENT
+	{
+		
+		private int _DEPTID;
+		
+		private string _DEPTNAME;
+		
+		private int _SUPDEPTID;
+		
+		private System.Nullable<short> _InheritParentSch;
+		
+		private System.Nullable<short> _InheritDeptSch;
+		
+		private System.Nullable<short> _InheritDeptSchClass;
+		
+		private System.Nullable<short> _AutoSchPlan;
+		
+		private System.Nullable<short> _InLate;
+		
+		private System.Nullable<short> _OutEarly;
+		
+		private System.Nullable<short> _InheritDeptRule;
+		
+		private System.Nullable<int> _MinAutoSchInterval;
+		
+		private System.Nullable<short> _RegisterOT;
+		
+		private int _DefaultSchId;
+		
+		private System.Nullable<short> _ATT;
+		
+		private System.Nullable<short> _Holiday;
+		
+		private System.Nullable<short> _OverTime;
+		
+		public VW_DEPARTMENT()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEPTID", DbType="Int NOT NULL")]
+		public int DEPTID
+		{
+			get
+			{
+				return this._DEPTID;
+			}
+			set
+			{
+				if ((this._DEPTID != value))
+				{
+					this._DEPTID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEPTNAME", DbType="VarChar(30)")]
+		public string DEPTNAME
+		{
+			get
+			{
+				return this._DEPTNAME;
+			}
+			set
+			{
+				if ((this._DEPTNAME != value))
+				{
+					this._DEPTNAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUPDEPTID", DbType="Int NOT NULL")]
+		public int SUPDEPTID
+		{
+			get
+			{
+				return this._SUPDEPTID;
+			}
+			set
+			{
+				if ((this._SUPDEPTID != value))
+				{
+					this._SUPDEPTID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InheritParentSch", DbType="SmallInt")]
+		public System.Nullable<short> InheritParentSch
+		{
+			get
+			{
+				return this._InheritParentSch;
+			}
+			set
+			{
+				if ((this._InheritParentSch != value))
+				{
+					this._InheritParentSch = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InheritDeptSch", DbType="SmallInt")]
+		public System.Nullable<short> InheritDeptSch
+		{
+			get
+			{
+				return this._InheritDeptSch;
+			}
+			set
+			{
+				if ((this._InheritDeptSch != value))
+				{
+					this._InheritDeptSch = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InheritDeptSchClass", DbType="SmallInt")]
+		public System.Nullable<short> InheritDeptSchClass
+		{
+			get
+			{
+				return this._InheritDeptSchClass;
+			}
+			set
+			{
+				if ((this._InheritDeptSchClass != value))
+				{
+					this._InheritDeptSchClass = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AutoSchPlan", DbType="SmallInt")]
+		public System.Nullable<short> AutoSchPlan
+		{
+			get
+			{
+				return this._AutoSchPlan;
+			}
+			set
+			{
+				if ((this._AutoSchPlan != value))
+				{
+					this._AutoSchPlan = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InLate", DbType="SmallInt")]
+		public System.Nullable<short> InLate
+		{
+			get
+			{
+				return this._InLate;
+			}
+			set
+			{
+				if ((this._InLate != value))
+				{
+					this._InLate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OutEarly", DbType="SmallInt")]
+		public System.Nullable<short> OutEarly
+		{
+			get
+			{
+				return this._OutEarly;
+			}
+			set
+			{
+				if ((this._OutEarly != value))
+				{
+					this._OutEarly = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InheritDeptRule", DbType="SmallInt")]
+		public System.Nullable<short> InheritDeptRule
+		{
+			get
+			{
+				return this._InheritDeptRule;
+			}
+			set
+			{
+				if ((this._InheritDeptRule != value))
+				{
+					this._InheritDeptRule = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MinAutoSchInterval", DbType="Int")]
+		public System.Nullable<int> MinAutoSchInterval
+		{
+			get
+			{
+				return this._MinAutoSchInterval;
+			}
+			set
+			{
+				if ((this._MinAutoSchInterval != value))
+				{
+					this._MinAutoSchInterval = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RegisterOT", DbType="SmallInt")]
+		public System.Nullable<short> RegisterOT
+		{
+			get
+			{
+				return this._RegisterOT;
+			}
+			set
+			{
+				if ((this._RegisterOT != value))
+				{
+					this._RegisterOT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DefaultSchId", DbType="Int NOT NULL")]
+		public int DefaultSchId
+		{
+			get
+			{
+				return this._DefaultSchId;
+			}
+			set
+			{
+				if ((this._DefaultSchId != value))
+				{
+					this._DefaultSchId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATT", DbType="SmallInt")]
+		public System.Nullable<short> ATT
+		{
+			get
+			{
+				return this._ATT;
+			}
+			set
+			{
+				if ((this._ATT != value))
+				{
+					this._ATT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Holiday", DbType="SmallInt")]
+		public System.Nullable<short> Holiday
+		{
+			get
+			{
+				return this._Holiday;
+			}
+			set
+			{
+				if ((this._Holiday != value))
+				{
+					this._Holiday = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OverTime", DbType="SmallInt")]
+		public System.Nullable<short> OverTime
+		{
+			get
+			{
+				return this._OverTime;
+			}
+			set
+			{
+				if ((this._OverTime != value))
+				{
+					this._OverTime = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_MASTER_SALARY")]
+	public partial class VW_MASTER_SALARY
+	{
+		
+		private int _USERID;
+		
+		private string _NIK;
+		
+		private string _NAME;
+		
+		private string _DEPTNAME;
+		
+		private string _GROUPS;
+		
+		private System.Nullable<int> _ID_SALARY;
+		
+		private System.Nullable<decimal> _SALARY;
+		
+		private string _SALARY_NOTES;
+		
+		public VW_MASTER_SALARY()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERID", DbType="Int NOT NULL")]
+		public int USERID
+		{
+			get
+			{
+				return this._USERID;
+			}
+			set
+			{
+				if ((this._USERID != value))
+				{
+					this._USERID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NIK", DbType="VarChar(24) NOT NULL", CanBeNull=false)]
+		public string NIK
+		{
+			get
+			{
+				return this._NIK;
+			}
+			set
+			{
+				if ((this._NIK != value))
+				{
+					this._NIK = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="VarChar(40)")]
+		public string NAME
+		{
+			get
+			{
+				return this._NAME;
+			}
+			set
+			{
+				if ((this._NAME != value))
+				{
+					this._NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEPTNAME", DbType="VarChar(30)")]
+		public string DEPTNAME
+		{
+			get
+			{
+				return this._DEPTNAME;
+			}
+			set
+			{
+				if ((this._DEPTNAME != value))
+				{
+					this._DEPTNAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GROUPS", DbType="VarChar(30)")]
+		public string GROUPS
+		{
+			get
+			{
+				return this._GROUPS;
+			}
+			set
+			{
+				if ((this._GROUPS != value))
+				{
+					this._GROUPS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_SALARY", DbType="Int")]
+		public System.Nullable<int> ID_SALARY
+		{
+			get
+			{
+				return this._ID_SALARY;
+			}
+			set
+			{
+				if ((this._ID_SALARY != value))
+				{
+					this._ID_SALARY = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SALARY", DbType="Decimal(18,4)")]
+		public System.Nullable<decimal> SALARY
+		{
+			get
+			{
+				return this._SALARY;
+			}
+			set
+			{
+				if ((this._SALARY != value))
+				{
+					this._SALARY = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SALARY_NOTES", DbType="NChar(50)")]
+		public string SALARY_NOTES
+		{
+			get
+			{
+				return this._SALARY_NOTES;
+			}
+			set
+			{
+				if ((this._SALARY_NOTES != value))
+				{
+					this._SALARY_NOTES = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_KARYAWAN_AUTOCOMPLETE")]
+	public partial class VW_KARYAWAN_AUTOCOMPLETE
+	{
+		
+		private string _VALUE;
+		
+		public VW_KARYAWAN_AUTOCOMPLETE()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALUE", DbType="VarChar(100)")]
+		public string VALUE
+		{
+			get
+			{
+				return this._VALUE;
+			}
+			set
+			{
+				if ((this._VALUE != value))
+				{
+					this._VALUE = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_SALARY")]
+	public partial class TBL_SALARY : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private System.Nullable<int> _emp_id;
+		
+		private System.Nullable<decimal> _amount;
+		
+		private string _notes;
+		
+		private System.Nullable<System.DateTime> _active_date_start;
+		
+		private System.Nullable<System.DateTime> _active_date_end;
+		
+		private System.Nullable<System.DateTime> _input_date;
+		
+		private string _input_by;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void Onemp_idChanging(System.Nullable<int> value);
+    partial void Onemp_idChanged();
+    partial void OnamountChanging(System.Nullable<decimal> value);
+    partial void OnamountChanged();
+    partial void OnnotesChanging(string value);
+    partial void OnnotesChanged();
+    partial void Onactive_date_startChanging(System.Nullable<System.DateTime> value);
+    partial void Onactive_date_startChanged();
+    partial void Onactive_date_endChanging(System.Nullable<System.DateTime> value);
+    partial void Onactive_date_endChanged();
+    partial void Oninput_dateChanging(System.Nullable<System.DateTime> value);
+    partial void Oninput_dateChanged();
+    partial void Oninput_byChanging(string value);
+    partial void Oninput_byChanged();
+    #endregion
+		
+		public TBL_SALARY()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_emp_id", DbType="Int")]
+		public System.Nullable<int> emp_id
+		{
+			get
+			{
+				return this._emp_id;
+			}
+			set
+			{
+				if ((this._emp_id != value))
+				{
+					this.Onemp_idChanging(value);
+					this.SendPropertyChanging();
+					this._emp_id = value;
+					this.SendPropertyChanged("emp_id");
+					this.Onemp_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_amount", DbType="Decimal(18,4)")]
+		public System.Nullable<decimal> amount
+		{
+			get
+			{
+				return this._amount;
+			}
+			set
+			{
+				if ((this._amount != value))
+				{
+					this.OnamountChanging(value);
+					this.SendPropertyChanging();
+					this._amount = value;
+					this.SendPropertyChanged("amount");
+					this.OnamountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_notes", DbType="NChar(50)")]
+		public string notes
+		{
+			get
+			{
+				return this._notes;
+			}
+			set
+			{
+				if ((this._notes != value))
+				{
+					this.OnnotesChanging(value);
+					this.SendPropertyChanging();
+					this._notes = value;
+					this.SendPropertyChanged("notes");
+					this.OnnotesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_active_date_start", DbType="Date")]
+		public System.Nullable<System.DateTime> active_date_start
+		{
+			get
+			{
+				return this._active_date_start;
+			}
+			set
+			{
+				if ((this._active_date_start != value))
+				{
+					this.Onactive_date_startChanging(value);
+					this.SendPropertyChanging();
+					this._active_date_start = value;
+					this.SendPropertyChanged("active_date_start");
+					this.Onactive_date_startChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_active_date_end", DbType="Date")]
+		public System.Nullable<System.DateTime> active_date_end
+		{
+			get
+			{
+				return this._active_date_end;
+			}
+			set
+			{
+				if ((this._active_date_end != value))
+				{
+					this.Onactive_date_endChanging(value);
+					this.SendPropertyChanging();
+					this._active_date_end = value;
+					this.SendPropertyChanged("active_date_end");
+					this.Onactive_date_endChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_input_date", DbType="Date")]
+		public System.Nullable<System.DateTime> input_date
+		{
+			get
+			{
+				return this._input_date;
+			}
+			set
+			{
+				if ((this._input_date != value))
+				{
+					this.Oninput_dateChanging(value);
+					this.SendPropertyChanging();
+					this._input_date = value;
+					this.SendPropertyChanged("input_date");
+					this.Oninput_dateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_input_by", DbType="VarChar(50)")]
+		public string input_by
+		{
+			get
+			{
+				return this._input_by;
+			}
+			set
+			{
+				if ((this._input_by != value))
+				{
+					this.Oninput_byChanging(value);
+					this.SendPropertyChanging();
+					this._input_by = value;
+					this.SendPropertyChanged("input_by");
+					this.Oninput_byChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}

@@ -1,27 +1,59 @@
 ﻿
+@{
+    ViewBag.Title = "MASTER KARYAWAN";
+    ViewBag.pathParent = Url.Content("~").Substring(0, Url.Content("~").Length - 1);
+}
 
-
+<input type="hidden" id="urlPath" name="urlPath" value="@ViewBag.pathParent" />
+<input type="text" class="form-control" id="ddl_department"><BR>
 <div id="dv_grid" style="background-color:#f6f6f6;margin-top:5px;width:97%" class="col-md-12"> </div>
-
-
 <script>
+    var dataSourceDept = new kendo.data.DataSource({
+        transport: {
+            read: {
+                url: $("#urlPath").val() + "/DEPARTMENT/readDept",
+                contentType: "application/json",
+            }
+        }
+    });
     $(document).ready(function () {
-        fn_load_grid();
+        fn_load_grid("");
+        $("#ddl_department").kendoDropDownList({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: {
+                        type: "POST",
+                        contentType: "application/json",
+                        url: $("#urlPath").val() + "/DEPARTMENT/ReadDept",
+                        cache: false
+                    }
+                }
+            },
+            change: function(e) {
+                var value = this.value();
+                fn_load_grid(value);
+            },
+            dataTextField: "DEPTNAME",
+            dataValueField: "DEPTNAME"
+        }).data("kendoDropDownList");
     });
 
-    function fn_load_grid() {
+
+   
+    function fn_load_grid(s_str_dept) {
         $("#dv_grid").kendoGrid({
             dataSource: {
                 batch: true,
                 transport: {
                     read: {
-                        url: $("#urlPath").val() + "/Employee/listemployee",
+                        url: $("#urlPath").val() + "/Employee/listemployee?paramst=" +s_str_dept ,
                         contentType: "application/json",
                         type: "POST"
                     },
                     parameterMap: function (data, operation) {
                         if (operation == "read") {
-                            data.TIKET_TAKE_UP_DOK = "" + $("#id_dok").val() + "";
+                            //data.TIKET_TAKE_UP_DOK = "" + $("#id_dok").val() + "";
                             //data.s_tipe = 'KODE';
                         } else if (operation == "create") {
 
@@ -49,7 +81,7 @@
                             NAME: { type: "string", editable: false },
                             DEPT_NAME: { type: "string", editable: false },
                             GROUPS: { type: "string", editable: false },
-                           
+
                         }
                     }
 
@@ -87,7 +119,7 @@
               //    template: '<div style="text-align:center;"><input type="checkbox"  class="chkbx" /></div>',
               //    headerTemplate: '<div style="text-align:center;"><input type="checkbox" id="SelectAll" /></div>'
               //},
-              { command: [{ text: "RESCHEDULE", click: cufn_reschedule }, { text: " BATALKAN ", click: cufn_batalkan }], width: 30 },
+              //{ command: [{ text: "RESCHEDULE", click: cufn_reschedule }, { text: " BATALKAN ", click: cufn_batalkan }], width: 30 },
               {
                   field: "NIK",
                   title: "<center>NIK</center>",
@@ -95,7 +127,7 @@
 
               },
               {
-                  field: "NAMA",
+                  field: "NAME",
                   title: "<center>NAMA</center>",
                   width: 55
 
@@ -104,15 +136,21 @@
                   field: "DEPTNAME",
                   title: "<center>DEPARTEMEN</center>",
                   width: 50,
-                 
+
               },
               {
                   field: "GROUPS",
-                  title: "<center>DARI</center>",
+                  title: "<center>GROUPS</center>",
                   width: 40,
-  
+
+              },
+              {
+                  field: "SALARY",
+                  title: "<center>UPAH AKTIF</center>",
+                  width: 40,
+
               }
-          
+
 
 
 

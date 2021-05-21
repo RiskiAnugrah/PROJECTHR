@@ -25,7 +25,7 @@ namespace AdminLTE1.Controllers
 
 
           
-                var list_user = i_obj_ctx.VW_M_USERs.Where(u => u.username.Equals(pnrp.Substring(1, pnrp.Length - 1))).ToList();
+                var list_user = i_obj_ctx.VW_M_USERs.Where(u => u.username.Equals(pnrp)).Where(u=>u.password==password).ToList();
 
                 if (list_user.Count() > 0)
                 {
@@ -90,7 +90,7 @@ namespace AdminLTE1.Controllers
             Session["akses_pid"] = id_desc;
             Session["akses_desc"] = desc;
 
-            return RedirectToAction("Frm_view_karyawan", "EMPLOYEE");
+            return RedirectToAction("Index", "REQUEST");
 
 
         }

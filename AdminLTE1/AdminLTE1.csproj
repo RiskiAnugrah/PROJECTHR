@@ -744,6 +744,8 @@
     <Content Include="Scripts\script\Tiket\Frm_view_issued.js~RF11cbdf7.TMP" />
     <Content Include="Scripts\script\Tiket\Frm_view_issued.js~RF1235b5e.TMP" />
     <Content Include="Views\Employee\Frm_view_karyawan.cshtml" />
+    <Content Include="Views\PAYROLL\Index.cshtml" />
+    <Content Include="Views\PAYROLL\frm_inputUpah.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -753,7 +755,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DEPARTMENTController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\PAYROLLController.cs" />
     <Compile Include="Models\DB_FINGER.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -891,6 +895,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\DEPARTMENT\" />
     <Folder Include="Views\Login\" />
     <Folder Include="Views\Master\" />
   </ItemGroup>

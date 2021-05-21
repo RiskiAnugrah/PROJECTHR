@@ -1,0 +1,121 @@
+﻿
+@{
+    ViewBag.Title = "frm_inputUpah";
+    ViewBag.pathParent = Url.Content("~").Substring(0, Url.Content("~").Length - 1);
+    Layout = "~/Views/Shared/_LayoutBlank.cshtml";
+}
+
+<head>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+
+</head>
+<input type="hidden" id="urlPath" name="urlPath" value="@ViewBag.pathParent" />
+
+<form class="form-horizontal" >
+
+    <div class="modal-body row" style="font-size:15px;">
+        <div class="col-md-6">
+           
+
+                <label for="fname">Karyawan :</label>
+                <input type="text" id="empid" name="empid" class="input-group"><br>
+
+                <label for="fname">Upah :</label>
+                <input type="number" id="upah" name="upah" class="input-group"><br>
+            
+                <label for="fname">Tanggal Awal :</label>
+                <input type="text" id="tglawal" name="tglawal" class="input-group"><br>
+
+                <label for="fname">Tanggal Akhir :</label>
+                <input type="text" id="tglakhir" name="tglakhir" class="input-group"><br>
+                <br>
+                <button id="btn_submit" class="btn-primary">INSERT</button>
+                <button id="btn_cancel" class="btn-warning">CANCEL</button>
+            </div>
+            </div>
+           
+</form>
+<script>
+    var p_nik = "";
+    $(document).ready(function () {
+        
+
+
+        $("#tglawal").kendoDatePicker({
+            value: new Date(),
+            dateInput: true,
+            format: "yyyy-MM-dd"
+        });
+
+        $("#tglakhir").kendoDatePicker({
+            value: new Date(),
+            dateInput: true,
+            format: "yyyy-MM-dd"
+        });
+
+      $("#empid").kendoAutoComplete({
+          dataSource: {
+            type: "json",
+
+            transport: {
+                  read: {
+                        type: "POST",
+                        contentType: "application/json",
+                        url: $("#urlPath").val() + "/Employee/ReadEmployeeAutoComplete",
+                        cache: false
+                  }
+            }
+          },
+          filter: "contains",
+          dataTextField: "VALUE",
+        
+          placeholder: "Select Karyawan...",         
+          change: function (e) {
+              var value = this.value();
+              var nik = value.substr(0, value.indexOf(' '));
+              p_nik = nik;
+          },
+      });
+
+
+    
+    });
+
+
+    $("#btn_submit").click(function () {
+
+        var i_cls_data = {
+            emp_idp_nik,
+            active_date_start: $("#tglawal").val(),
+            active_date_end: $("#tglakhir").val(),
+            amount: $("#upah").val()
+           
+        }
+
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json",
+            url: $("#urlPath").val() + "/PAYROLL/insertUpah",
+            data: JSON.stringify(i_cls_data),
+            success: function (response) {
+                if (response.status == true) {
+                    alert(response.remarks);
+                    window.parent.$("#dv_add").data("kendoWindow").close();
+                }
+                else {
+                    alert("TERJADI ERROR KARENA : " + response.remarks);
+                }
+            }
+
+        });
+  
+    });
+
+</script>
