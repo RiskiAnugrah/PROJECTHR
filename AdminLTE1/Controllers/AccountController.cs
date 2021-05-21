@@ -39,17 +39,17 @@ namespace AdminLTE1.Controllers
 
                     }
 
-                    return RedirectToAction("Index", "LOGIN");
+                    return RedirectToAction("Index", "account");
 
                 }
                 else
                 {
                     Response.Write("<script> alert('Login Failed');</script>");
-
-                }
+                     return RedirectToAction("Index", "account");
+            }
             
 
-            return RedirectToAction("Index", "LOGIN");
+           
 
 
 
@@ -62,7 +62,7 @@ namespace AdminLTE1.Controllers
             Session.RemoveAll();
 
             FormsAuthentication.SignOut();
-            return this.RedirectToAction("Index", "Login");
+            return this.RedirectToAction("Index", "ACCOUNT");
         }
 
 

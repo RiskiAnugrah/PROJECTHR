@@ -92,7 +92,7 @@
          }
          else {
              $.ajax({
-                 url: $("#urlPath").val() + "/LOGIN/GetUser",
+                 url: $("#urlPath").val() + "/ACCOUNT/GetUser",
                  type: "POST",
                  contentType: "application/json",
                  data: JSON.stringify({
@@ -100,11 +100,10 @@
                      password: $("#Password").val(),
                  }),
                  success: function (data) {
-          
-                 
-                     location.href = $("#urlPath").val() + "/EMPLOYEE/Frm_view_karyawan";
+
+                     location.reload();
                  }
-                
+
 
              });
          }
@@ -112,17 +111,25 @@
 
 
 
+    function ceksession() {
+        if ("@Session["NAMA"]" === "") {
+           
+        }
+         else  {
+            location.href = $("#urlPath").val() + "/EMPLOYEE/Frm_view_karyawan";
 
-       
+        }
+    }
+
 
         function execlogin() {
-            
-                ceklogin();
-           
 
-            
-               
-            
+                ceklogin();
+
+
+
+
+
         }
 
 </script>

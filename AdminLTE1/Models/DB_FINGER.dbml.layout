@@ -56,5 +56,11 @@
         <elementListCompartment Id="5a8a611e-e231-4dcd-9fb5-5cb865dd8fd2" absoluteBounds="4.765, 2.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="62da3b9e-f7e6-48a7-a739-e8a408178e69" isExpanded="false" absoluteBounds="0.5, 2.375, 2, 0.45">
+      <DataClassMoniker Name="/DB_FINGERDataContext/VW_MASTER_SALARY_KARYAWAN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="07f5d06b-3b02-4c3a-8e98-a16eda22e0f5" absoluteBounds="0.51499999999999968, 2.835, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

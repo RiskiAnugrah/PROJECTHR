@@ -87,34 +87,43 @@
     
     });
 
+    $("#btn_cancel").click(function () {
+
+        
+        window.parent.$("#dv_add").data("kendoWindow").close();
+         
+
+    });
 
     $("#btn_submit").click(function () {
+        var conf = confirm("Apakah inputan anda sudah benar?");
+        if (conf) {
+            var i_cls_data = {
+                notes: p_nik,
+                active_date_start: $("#tglawal").val(),
+                active_date_end: $("#tglakhir").val(),
+                amount: $("#upah").val()
 
-        var i_cls_data = {
-            emp_idp_nik,
-            active_date_start: $("#tglawal").val(),
-            active_date_end: $("#tglakhir").val(),
-            amount: $("#upah").val()
-           
-        }
-
-        $.ajax({
-            type: "POST",
-            dataType: "json",
-            contentType: "application/json",
-            url: $("#urlPath").val() + "/PAYROLL/insertUpah",
-            data: JSON.stringify(i_cls_data),
-            success: function (response) {
-                if (response.status == true) {
-                    alert(response.remarks);
-                    window.parent.$("#dv_add").data("kendoWindow").close();
-                }
-                else {
-                    alert("TERJADI ERROR KARENA : " + response.remarks);
-                }
             }
 
-        });
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                contentType: "application/json",
+                url: $("#urlPath").val() + "/PAYROLL/insertUpah",
+                data: JSON.stringify(i_cls_data),
+                success: function (response) {
+                    if (response.status == true) {
+                        alert(response.remarks);
+                        window.parent.$("#dv_add").data("kendoWindow").close();
+                    }
+                    else {
+                        alert("TERJADI ERROR KARENA : " + response.remarks);
+                    }
+                }
+
+            });
+        } 
   
     });
 

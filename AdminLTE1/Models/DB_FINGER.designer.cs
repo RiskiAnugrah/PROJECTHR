@@ -146,17 +146,25 @@ namespace AdminLTE1.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.cusp_insert_upah")]
-		public int cusp_insert_upah([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> idemp, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> tanggal_awal, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> tanggal_akhir, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(18,2)")] System.Nullable<decimal> upah, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string user)
+		public System.Data.Linq.Table<VW_MASTER_SALARY_KARYAWAN> VW_MASTER_SALARY_KARYAWANs
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idemp, tanggal_awal, tanggal_akhir, upah, user);
-			return ((int)(result.ReturnValue));
+			get
+			{
+				return this.GetTable<VW_MASTER_SALARY_KARYAWAN>();
+			}
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.EXTRACT_DATA_ABSEN")]
 		public int EXTRACT_DATA_ABSEN()
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.cusp_insert_upah")]
+		public int cusp_insert_upah([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NIK", DbType="VarChar(25)")] string nIK, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> tanggal_awal, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> tanggal_akhir, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(18,2)")] System.Nullable<decimal> upah, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string user)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nIK, tanggal_awal, tanggal_akhir, upah, user);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -3168,6 +3176,249 @@ namespace AdminLTE1.Models
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_MASTER_SALARY_KARYAWAN")]
+	public partial class VW_MASTER_SALARY_KARYAWAN
+	{
+		
+		private int _id;
+		
+		private System.Nullable<int> _emp_id;
+		
+		private System.Nullable<decimal> _amount;
+		
+		private string _notes;
+		
+		private System.Nullable<System.DateTime> _active_date_start;
+		
+		private System.Nullable<System.DateTime> _active_date_end;
+		
+		private System.Nullable<System.DateTime> _input_date;
+		
+		private string _input_by;
+		
+		private int _USERID;
+		
+		private string _NIK;
+		
+		private string _NAME;
+		
+		private string _DEPTNAME;
+		
+		private string _GROUPS;
+		
+		public VW_MASTER_SALARY_KARYAWAN()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL")]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this._id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_emp_id", DbType="Int")]
+		public System.Nullable<int> emp_id
+		{
+			get
+			{
+				return this._emp_id;
+			}
+			set
+			{
+				if ((this._emp_id != value))
+				{
+					this._emp_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_amount", DbType="Decimal(18,4)")]
+		public System.Nullable<decimal> amount
+		{
+			get
+			{
+				return this._amount;
+			}
+			set
+			{
+				if ((this._amount != value))
+				{
+					this._amount = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_notes", DbType="NChar(50)")]
+		public string notes
+		{
+			get
+			{
+				return this._notes;
+			}
+			set
+			{
+				if ((this._notes != value))
+				{
+					this._notes = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_active_date_start", DbType="Date")]
+		public System.Nullable<System.DateTime> active_date_start
+		{
+			get
+			{
+				return this._active_date_start;
+			}
+			set
+			{
+				if ((this._active_date_start != value))
+				{
+					this._active_date_start = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_active_date_end", DbType="Date")]
+		public System.Nullable<System.DateTime> active_date_end
+		{
+			get
+			{
+				return this._active_date_end;
+			}
+			set
+			{
+				if ((this._active_date_end != value))
+				{
+					this._active_date_end = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_input_date", DbType="Date")]
+		public System.Nullable<System.DateTime> input_date
+		{
+			get
+			{
+				return this._input_date;
+			}
+			set
+			{
+				if ((this._input_date != value))
+				{
+					this._input_date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_input_by", DbType="VarChar(50)")]
+		public string input_by
+		{
+			get
+			{
+				return this._input_by;
+			}
+			set
+			{
+				if ((this._input_by != value))
+				{
+					this._input_by = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERID", DbType="Int NOT NULL")]
+		public int USERID
+		{
+			get
+			{
+				return this._USERID;
+			}
+			set
+			{
+				if ((this._USERID != value))
+				{
+					this._USERID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NIK", DbType="VarChar(24) NOT NULL", CanBeNull=false)]
+		public string NIK
+		{
+			get
+			{
+				return this._NIK;
+			}
+			set
+			{
+				if ((this._NIK != value))
+				{
+					this._NIK = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="VarChar(40)")]
+		public string NAME
+		{
+			get
+			{
+				return this._NAME;
+			}
+			set
+			{
+				if ((this._NAME != value))
+				{
+					this._NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEPTNAME", DbType="VarChar(30)")]
+		public string DEPTNAME
+		{
+			get
+			{
+				return this._DEPTNAME;
+			}
+			set
+			{
+				if ((this._DEPTNAME != value))
+				{
+					this._DEPTNAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GROUPS", DbType="VarChar(30)")]
+		public string GROUPS
+		{
+			get
+			{
+				return this._GROUPS;
+			}
+			set
+			{
+				if ((this._GROUPS != value))
+				{
+					this._GROUPS = value;
+				}
 			}
 		}
 	}

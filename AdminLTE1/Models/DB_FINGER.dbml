@@ -172,15 +172,32 @@
       <Column Name="input_by" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.VW_MASTER_SALARY_KARYAWAN" Member="VW_MASTER_SALARY_KARYAWANs">
+    <Type Name="VW_MASTER_SALARY_KARYAWAN">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="emp_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="amount" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="notes" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="active_date_start" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="active_date_end" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="input_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="input_by" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NIK" Type="System.String" DbType="VarChar(24) NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="DEPTNAME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="GROUPS" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.EXTRACT_DATA_ABSEN" Method="EXTRACT_DATA_ABSEN">
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.cusp_insert_upah" Method="cusp_insert_upah">
-    <Parameter Name="idemp" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NIK" Parameter="nIK" Type="System.String" DbType="VarChar(25)" />
     <Parameter Name="tanggal_awal" Type="System.DateTime" DbType="Date" />
     <Parameter Name="tanggal_akhir" Type="System.DateTime" DbType="Date" />
     <Parameter Name="upah" Type="System.Decimal" DbType="Decimal(18,2)" />
     <Parameter Name="user" Type="System.String" DbType="VarChar(50)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.EXTRACT_DATA_ABSEN" Method="EXTRACT_DATA_ABSEN">
     <Return Type="System.Int32" />
   </Function>
 </Database>

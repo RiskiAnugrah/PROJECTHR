@@ -659,8 +659,8 @@
     <Content Include="Web.config" />
     <Content Include="Models\DB_FINGER.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>DB_FINGER.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>DB_FINGER1.designer.cs</LastGenOutput>
     </Content>
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Content\Login\css\style.css~RF19d4df8.TMP" />
