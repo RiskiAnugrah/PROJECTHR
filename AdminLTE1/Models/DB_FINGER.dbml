@@ -1,48 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DB_FINGER" Class="DB_FINGERDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=192.168.1.10;Initial Catalog=DB_FINGER;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DB_FINGERConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.USERINFO" Member="USERINFOs">
-    <Type Name="USERINFO">
-      <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="BADGENUMBER" Type="System.String" DbType="VarChar(24) NOT NULL" CanBeNull="false" />
-      <Column Name="SSN" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="NAME" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
-      <Column Name="GENDER" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
-      <Column Name="TITLE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="PAGER" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="BIRTHDAY" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="HIREDDAY" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="STREET" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
-      <Column Name="CITY" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
-      <Column Name="STATE" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
-      <Column Name="ZIP" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
-      <Column Name="OPHONE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="FPHONE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="VERIFICATIONMETHOD" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="DEFAULTDEPTID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="SECURITYFLAGS" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="ATT" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="INLATE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="OUTEARLY" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="OVERTIME" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="SEP" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="HOLIDAY" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="MINZU" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
-      <Column Name="PASSWORD" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="LUNCHDURATION" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="MVerifyPass" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="PHOTO" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="Notes" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="privilege" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="InheritDeptSch" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="InheritDeptSchClass" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="AutoSchPlan" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="MinAutoSchInterval" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="RegisterOT" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="InheritDeptRule" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="EMPRIVILEGE" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="CardNo" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.TBL_T_SHIFTMAP" Member="TBL_T_SHIFTMAPs">
     <Type Name="TBL_T_SHIFTMAP">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -50,28 +7,6 @@
       <Column Name="START_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="END_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="SHIFT_SCH_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TBL_T_EXTRACT_ABSEN" Member="TBL_T_EXTRACT_ABSENs">
-    <Type Name="TBL_T_EXTRACT_ABSEN">
-      <Column Name="PID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="USERID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="NAMA" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
-      <Column Name="TANGGAL" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="[IN]" Member="IN" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
-      <Column Name="OUT" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
-      <Column Name="SHIFT" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DEPARTEMEN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="GROUPS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.VW_KARYAWAN_ALL" Member="VW_KARYAWAN_ALLs">
-    <Type Name="VW_KARYAWAN_ALL">
-      <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="NIK" Type="System.String" DbType="VarChar(24) NOT NULL" CanBeNull="false" />
-      <Column Name="NAME" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
-      <Column Name="DEPTNAME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="GROUPS" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.VW_M_USER" Member="VW_M_USERs">
@@ -143,23 +78,6 @@
       <Column Name="OverTime" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.VW_MASTER_SALARY" Member="VW_MASTER_SALARies">
-    <Type Name="VW_MASTER_SALARY">
-      <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="NIK" Type="System.String" DbType="VarChar(24) NOT NULL" CanBeNull="false" />
-      <Column Name="NAME" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
-      <Column Name="DEPTNAME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="GROUPS" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="ID_SALARY" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="SALARY" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
-      <Column Name="SALARY_NOTES" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.VW_KARYAWAN_AUTOCOMPLETE" Member="VW_KARYAWAN_AUTOCOMPLETEs">
-    <Type Name="VW_KARYAWAN_AUTOCOMPLETE">
-      <Column Name="VALUE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.TBL_SALARY" Member="TBL_SALARies">
     <Type Name="TBL_SALARY">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -189,6 +107,189 @@
       <Column Name="GROUPS" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.VW_KARYAWAN_AUTOCOMPLETE" Member="VW_KARYAWAN_AUTOCOMPLETEs">
+    <Type Name="VW_KARYAWAN_AUTOCOMPLETE">
+      <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="VALUE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DEPTNAME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_GROUPS" Member="VW_GROUPs">
+    <Type Name="VW_GROUP">
+      <Column Name="DEPTID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DEPTNAME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="SUPDEPTID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="InheritParentSch" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="InheritDeptSch" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="InheritDeptSchClass" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="AutoSchPlan" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="InLate" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="OutEarly" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="InheritDeptRule" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="MinAutoSchInterval" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RegisterOT" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="DefaultSchId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ATT" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Holiday" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="OverTime" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_EXTRACT_ABSEN" Member="es">
+    <Type Name="e">
+      <Column Name="PID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="USERID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NAMA" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="TANGGAL" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="[IN]" Member="IN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="OUT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SHIFT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DEPARTEMEN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GROUPS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_EXTRACT_ABSEN" Member="TBL_T_EXTRACT_ABSENs">
+    <Type Name="TBL_T_EXTRACT_ABSEN">
+      <Column Name="PID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="USERID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NAMA" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="TANGGAL" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="[IN]" Member="IN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="OUT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SHIFT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DEPARTEMEN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GROUPS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CHECKINOUT" Member="CHECKINOUTs">
+    <Type Name="CHECKINOUT">
+      <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CHECKTIME" Type="System.DateTime" DbType="DateTime NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CHECKTYPE" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="VERIFYCODE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SENSORID" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="Memoinfo" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="WorkCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sn" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="UserExtFmt" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_ABSEN" Member="VW_ABSENs">
+    <Type Name="VW_ABSEN">
+      <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="DEPTNAME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="GROUPS" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="TANGGAL" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CHECKTIME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CHECKTYPE" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_GROUP_BORONGAN" Member="VW_GROUP_BORONGANs">
+    <Type Name="VW_GROUP_BORONGAN">
+      <Column Name="kelompokoid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="groupref" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="kelompokcode" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="kelompokdesc" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_MASTER_SALARY" Member="VW_MASTER_SALARies">
+    <Type Name="VW_MASTER_SALARY">
+      <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NIK" Type="System.String" DbType="VarChar(24) NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="DEPTNAME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="GROUPS" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ID_SALARY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SALARY" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="GROUP_BORONGAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_KARYAWAN_ALL" Member="VW_KARYAWAN_ALLs">
+    <Type Name="VW_KARYAWAN_ALL">
+      <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NIK" Type="System.String" DbType="VarChar(24) NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="DEPTNAME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="GROUPS" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="GROUP_BORONGAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.USERINFO" Member="USERINFOs">
+    <Type Name="USERINFO">
+      <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BADGENUMBER" Type="System.String" DbType="VarChar(24) NOT NULL" CanBeNull="false" />
+      <Column Name="SSN" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="GENDER" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="TITLE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="PAGER" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="BIRTHDAY" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="HIREDDAY" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="STREET" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="CITY" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="STATE" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="ZIP" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="OPHONE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="FPHONE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="VERIFICATIONMETHOD" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="DEFAULTDEPTID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="SECURITYFLAGS" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="ATT" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="INLATE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="OUTEARLY" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="OVERTIME" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="SEP" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="HOLIDAY" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="MINZU" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="PASSWORD" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="LUNCHDURATION" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="MVerifyPass" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="PHOTO" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Notes" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="privilege" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="InheritDeptSch" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="InheritDeptSchClass" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="AutoSchPlan" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="MinAutoSchInterval" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RegisterOT" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="InheritDeptRule" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="EMPRIVILEGE" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="CardNo" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="GROUP_BORONGAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_ITEM_BORONGAN" Member="VW_ITEM_BORONGANs">
+    <Type Name="VW_ITEM_BORONGAN">
+      <Column Name="itemoid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="itemcode" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="itemlocaldesc" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_T_TARIF_BORONGAN" Member="TBL_T_TARIF_BORONGANs">
+    <Type Name="TBL_T_TARIF_BORONGAN">
+      <Column Name="id" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="item_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="start_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="end_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="tarif" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_TARIF_BORONGAN" Member="VW_TARIF_BORONGANs">
+    <Type Name="VW_TARIF_BORONGAN">
+      <Column Name="id" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="itemcode" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="itemlocaldesc" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="start_date" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="end_date" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="tarif" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_ITEM_BORONGAN_AUTOCOMPLETE" Member="VW_ITEM_BORONGAN_AUTOCOMPLETEs">
+    <Type Name="VW_ITEM_BORONGAN_AUTOCOMPLETE">
+      <Column Name="itemoid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="VALUE" Type="System.String" DbType="VarChar(181) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Function Name="dbo.EXTRACT_DATA_ABSEN" Method="EXTRACT_DATA_ABSEN">
     <Return Type="System.Int32" />
   </Function>
@@ -198,6 +299,18 @@
     <Parameter Name="tanggal_akhir" Type="System.DateTime" DbType="Date" />
     <Parameter Name="upah" Type="System.Decimal" DbType="Decimal(18,2)" />
     <Parameter Name="user" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.cusp_insert_tarif" Method="cusp_insert_tarif">
+    <Parameter Name="itemcode" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="tanggal_awal" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="tanggal_akhir" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="tarif" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="user" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.EXTRACT_DATA_ABSEN_PARAM" Method="EXTRACT_DATA_ABSEN_PARAM">
+    <Parameter Name="params" Type="System.String" DbType="VarChar(20)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

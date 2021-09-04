@@ -33,10 +33,10 @@
             <div class="wrap-login100">
                 <div class="login100-form-title" style="background-image: url(@ViewBag.pathParent/Content/Login/images/tiket.gif);">
                     <span class="login100-form-title-1">
-                      @* <image src="@ViewBag.pathParent/Content/Login/images/pamalogo.ico" style="width:40px"></image> TIKETING-APP LOGIN*@
+                        <img src="~/Content/img/Logo PMS.gif" width="75px" style="margin:3px;" />
                     </span>
                 </div>
-
+                <center><br /><span style="font-family:Georgia, 'Times New Roman', Times, serif;font-size:20px"><b><i>PAYROLL NON STAFF</i></b> <br>PT. PELITA MEKAR SEMESTA</span></center>
                 <form class="login100-form validate-form">
                     <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
                         <span class="label-input100">Username</span>
@@ -116,7 +116,7 @@
            
         }
          else  {
-            location.href = $("#urlPath").val() + "/EMPLOYEE/Frm_view_karyawan";
+            location.href = $("#urlPath").val() + "/HOME/Index";
 
         }
     }

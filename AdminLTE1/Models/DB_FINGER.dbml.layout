@@ -1,29 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DB_FINGER">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.625" name="DB_FINGER">
   <DataContextMoniker Name="/DB_FINGERDataContext" />
   <nestedChildShapes>
-    <classShape Id="799b8b9c-42f7-49b5-a75f-fea1371d4b10" isExpanded="false" absoluteBounds="0.5, 0.5, 2, 0.45">
-      <DataClassMoniker Name="/DB_FINGERDataContext/USERINFO" />
-      <nestedChildShapes>
-        <elementListCompartment Id="1d6b3a5a-968e-47bb-87b2-55dfcded609f" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 7.7491455078125009" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="7eb9b1a2-a90f-4732-92bd-8a4bb6fb8f46" isExpanded="false" absoluteBounds="2.625, 0.5, 2, 0.45">
       <DataClassMoniker Name="/DB_FINGERDataContext/TBL_T_SHIFTMAP" />
       <nestedChildShapes>
         <elementListCompartment Id="b43f2a66-db79-4527-a2ac-26402e06f140" absoluteBounds="2.64, 0.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="05dc8ce7-17e7-4113-a9ff-74ef06a6ba4e" isExpanded="false" absoluteBounds="4.75, 0.5, 2, 0.45">
-      <DataClassMoniker Name="/DB_FINGERDataContext/TBL_T_EXTRACT_ABSEN" />
-      <nestedChildShapes>
-        <elementListCompartment Id="713618ba-0bdd-4aed-8618-f9bb02346a86" absoluteBounds="4.765, 0.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="30bf444b-6889-4bf8-8c82-9383e77ebd3e" isExpanded="false" absoluteBounds="2.625, 1.125, 2, 0.45">
-      <DataClassMoniker Name="/DB_FINGERDataContext/VW_KARYAWAN_ALL" />
-      <nestedChildShapes>
-        <elementListCompartment Id="b2165689-4af9-43ed-acdd-90b2f228eaa8" absoluteBounds="2.64, 1.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="a8405b11-c641-455e-8e38-b76af1074c38" isExpanded="false" absoluteBounds="0.5, 1.125, 2, 0.45">
@@ -38,18 +20,6 @@
         <elementListCompartment Id="789173fb-7c33-462d-9afa-d6d8f1466c5b" absoluteBounds="4.765, 1.585, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="229a36fd-4053-4f86-b237-6ebc9253bf12" isExpanded="false" absoluteBounds="0.5, 1.75, 2, 0.45">
-      <DataClassMoniker Name="/DB_FINGERDataContext/VW_MASTER_SALARY" />
-      <nestedChildShapes>
-        <elementListCompartment Id="1f1168b9-ea28-4252-b3eb-2403197f1c97" absoluteBounds="0.51500000000000012, 2.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="5db5a421-c971-4d14-9747-a5409f58a2b0" isExpanded="false" absoluteBounds="2.625, 1.75, 2, 0.45">
-      <DataClassMoniker Name="/DB_FINGERDataContext/VW_KARYAWAN_AUTOCOMPLETE" />
-      <nestedChildShapes>
-        <elementListCompartment Id="481f2806-96b2-4a83-a35b-3221fcfa57cc" absoluteBounds="2.64, 2.21, 1.9700000000000002, 0.44169108072916669" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="c73292ce-aad3-4ed6-a638-378968a88123" isExpanded="false" absoluteBounds="4.75, 1.75, 2, 0.45">
       <DataClassMoniker Name="/DB_FINGERDataContext/TBL_SALARY" />
       <nestedChildShapes>
@@ -60,6 +30,90 @@
       <DataClassMoniker Name="/DB_FINGERDataContext/VW_MASTER_SALARY_KARYAWAN" />
       <nestedChildShapes>
         <elementListCompartment Id="07f5d06b-3b02-4c3a-8e98-a16eda22e0f5" absoluteBounds="0.51499999999999968, 2.835, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="237005fc-77f3-4701-b370-ae48476792e7" isExpanded="false" absoluteBounds="2.625, 1.75, 2, 0.45">
+      <DataClassMoniker Name="/DB_FINGERDataContext/VW_KARYAWAN_AUTOCOMPLETE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22ed0968-19e0-4587-bc15-948bdbfda590" absoluteBounds="2.64, 2.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="44bb973f-bb0b-4f72-8cff-297b2b7bef6d" isExpanded="false" absoluteBounds="4.75, 2.375, 2, 0.45">
+      <DataClassMoniker Name="/DB_FINGERDataContext/VW_GROUP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3a407355-6301-403d-b254-7e1494015ba9" absoluteBounds="4.765, 2.835, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="03fbe970-5861-4a82-b08c-f6db7e2b038d" isExpanded="false" absoluteBounds="4.75, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/DB_FINGERDataContext/e" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2ba499e1-575c-4386-b85e-e5ef3e766c17" absoluteBounds="4.765, 0.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7332de23-fbf4-4d6d-b06d-759c8d3a17b4" isExpanded="false" absoluteBounds="2.625, 2.375, 2, 0.45">
+      <DataClassMoniker Name="/DB_FINGERDataContext/TBL_T_EXTRACT_ABSEN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="030720e8-1f7b-4321-9040-1f6db832e6f2" absoluteBounds="2.64, 2.835, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="472df251-f13f-4d6a-9376-3bf77f09f704" absoluteBounds="0.625, 5.75, 2, 2.5401025390625">
+      <DataClassMoniker Name="/DB_FINGERDataContext/CHECKINOUT" />
+      <nestedChildShapes>
+        <elementListCompartment Id="53dc57ea-92d9-42c9-8c2c-d148a763765b" absoluteBounds="0.64000000000000012, 6.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dbaa0e8e-bf1f-42c1-b315-b22f6ab07b3e" absoluteBounds="4.25, 6.25, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/DB_FINGERDataContext/VW_ABSEN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1ec358e8-62f6-4c71-a9f7-520d66f66a94" absoluteBounds="4.265, 6.71, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b00d7a7d-06ef-42d2-b9d8-25b07da31769" isExpanded="false" absoluteBounds="0.5, 3, 2, 0.45">
+      <DataClassMoniker Name="/DB_FINGERDataContext/VW_GROUP_BORONGAN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4eabc947-9fd9-41d6-ae75-e0ab901c0621" absoluteBounds="0.51500000000000012, 3.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a5c595b4-0c48-4afa-9ab8-81d361077e0a" isExpanded="false" absoluteBounds="0.5, 1.75, 2, 0.45">
+      <DataClassMoniker Name="/DB_FINGERDataContext/VW_MASTER_SALARY" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3cfc9f02-20e6-483f-826e-b4b7aff68f68" absoluteBounds="0.51500000000000012, 2.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="855d473c-d0b7-4f51-bdd2-cbc60e5d9668" isExpanded="false" absoluteBounds="2.625, 1.125, 2, 0.45">
+      <DataClassMoniker Name="/DB_FINGERDataContext/VW_KARYAWAN_ALL" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4c4e46ba-1877-40cf-b133-aec9eef55d61" absoluteBounds="2.64, 1.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7f99b2fb-d728-4454-95bf-f990e7f995e7" isExpanded="false" absoluteBounds="0.5, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/DB_FINGERDataContext/USERINFO" />
+      <nestedChildShapes>
+        <elementListCompartment Id="08005b6d-7a26-48d5-816c-000179e8073d" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 7.941446940104167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0764f058-cf08-48cc-9d72-ccca3cea96be" isExpanded="false" absoluteBounds="4.75, 3, 2, 0.45">
+      <DataClassMoniker Name="/DB_FINGERDataContext/VW_ITEM_BORONGAN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="035e5534-4137-4c4c-a1db-13a45dbc051b" absoluteBounds="4.765, 3.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5ac4d1c7-40e9-476e-8303-11a22c3caa1c" isExpanded="false" absoluteBounds="0.5, 3.625, 2, 0.45">
+      <DataClassMoniker Name="/DB_FINGERDataContext/TBL_T_TARIF_BORONGAN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6a53312b-a782-4203-8e10-aa7355cc9559" absoluteBounds="0.51500000000000012, 4.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f19c3a5c-f83e-4e90-8a82-41c6f194f89d" isExpanded="false" absoluteBounds="2.625, 3, 2, 0.45">
+      <DataClassMoniker Name="/DB_FINGERDataContext/VW_TARIF_BORONGAN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="64ccd710-9e10-43d4-a664-28cc60bb690b" absoluteBounds="2.64, 3.46, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7d37ee55-f5fe-4ff2-ae11-949771e6a438" isExpanded="false" absoluteBounds="2.625, 3.625, 2, 0.45">
+      <DataClassMoniker Name="/DB_FINGERDataContext/VW_ITEM_BORONGAN_AUTOCOMPLETE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="80e7abc8-1722-491d-b840-90888f264b2e" absoluteBounds="2.64, 4.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

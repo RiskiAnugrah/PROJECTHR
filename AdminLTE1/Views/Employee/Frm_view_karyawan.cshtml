@@ -5,7 +5,7 @@
 }
 
 <input type="hidden" id="urlPath" name="urlPath" value="@ViewBag.pathParent" />
-<input type="text" class="form-control" id="ddl_department"><BR>
+<input type="text" class="form-control" id="ddl_department"><input type="text" class="form-control" id="ddl_group"><BR><BR>
 <div id="dv_grid" style="background-color:#f6f6f6;margin-top:5px;width:97%" class="col-md-12"> </div>
 <script>
     var dataSourceDept = new kendo.data.DataSource({
@@ -25,7 +25,7 @@
                     read: {
                         type: "POST",
                         contentType: "application/json",
-                        url: $("#urlPath").val() + "/DEPARTMENT/ReadDept",
+                        url: $("#urlPath").val() + "/DEPARTMENT/ReadGroup",
                         cache: false
                     }
                 }
@@ -33,36 +33,104 @@
             change: function(e) {
                 var value = this.value();
                 fn_load_grid(value);
+                if (value == "PT. PMS") {
+                    var dropdownlist = $("#ddl_group").data("kendoDropDownList");
+                    dropdownlist.wrapper.show();
+              
+                }
+                else {
+                    var dropdownlist = $("#ddl_group").data("kendoDropDownList");
+                    dropdownlist.wrapper.hide();
+                }
             },
             dataTextField: "DEPTNAME",
             dataValueField: "DEPTNAME"
         }).data("kendoDropDownList");
+
+        $("#ddl_group").kendoDropDownList({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: {
+                        type: "POST",
+                        contentType: "application/json",
+                        url: $("#urlPath").val() + "/DEPARTMENT/ReadGroupBorongan",
+                        cache: false
+                    }
+                }
+            },
+            change: function (e) {
+                var value = this.value();
+                fn_load_grid_borongan(value);
+                
+            },
+            dataTextField: "kelompokdesc",
+            dataValueField: "kelompokdesc"
+        }).data("kendoDropDownList");
     });
 
 
-   
-    function fn_load_grid(s_str_dept) {
-        $("#dv_grid").kendoGrid({
+    function editor_group(container, options) {
+        $('<input id="ddl_groupedit" data-text-field="kelompokdesc" data-value-field="kelompokdesc" data-bind="value:GROUP_BORONGAN"/>')
+        .appendTo(container)
+        .kendoDropDownList({
             dataSource: {
-                batch: true,
+                type: "json",
                 transport: {
                     read: {
-                        url: $("#urlPath").val() + "/Employee/listemployee?paramst=" +s_str_dept ,
+                        type: "POST",
                         contentType: "application/json",
-                        type: "POST"
+                        url: $("#urlPath").val() + "/DEPARTMENT/ReadGroupBorongan",
+                        cache: false
+                    }
+                }
+            },
+            dataTextField: "kelompokdesc",
+            dataValueField: "kelompokdesc"
+        }).data("kendoDropDownList");
+
+    }
+
+    
+    function fn_load_grid(s_str_dept) {
+
+        if ($("#dv_grid").data().kendoGrid != null) {
+            $("#dv_grid").data().kendoGrid.destroy();
+            $("#dv_grid").empty();
+        }
+
+        $("#dv_grid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: {
+                        url: $("#urlPath").val() + "/Employee/listemployee?paramst=" + s_str_dept,
+                        contentType: "application/json",
+                        type: "POST",
+                        cache: false
+                    },
+                    update: {
+                        url: $("#urlPath").val() + "/Employee/updategroupnotes",
+                        contentType: "application/json",
+                        type: "POST",
+                        complete: function (data) {
+                            if (data.status) {
+                   
+                                $("#dv_grid").data("kendoGrid").dataSource.read();
+                            } else {
+                                alert("Update data gagal. hubungi tim IT");
+                            }
+                        }
                     },
                     parameterMap: function (data, operation) {
-                        if (operation == "read") {
-                            //data.TIKET_TAKE_UP_DOK = "" + $("#id_dok").val() + "";
-                            //data.s_tipe = 'KODE';
-                        } else if (operation == "create") {
-
-                        } else if (operation == "update") {
-
-                        } else if (operation == "destroy") {
-
+                        if (operation == "update") {
+                            data.GROUP_BORONGAN = $("#ddl_groupedit").data("kendoDropDownList").value();
+                            return kendo.stringify(data);
                         }
-                        return kendo.stringify(data)
+                        else{
+                            return kendo.stringify(data);
+                        }
+                    
                     }
                 },
                 error: function (e) {
@@ -75,13 +143,14 @@
                     data: "Data",
                     total: "Total",
                     model: {
-                        id: "USER_ID",
+                        id: "USERID",
                         fields: {
                             NIK: { type: "string", editable: false },
                             NAME: { type: "string", editable: false },
-                            DEPT_NAME: { type: "string", editable: false },
+                            DEPTNAME: { type: "string", editable: false },
                             GROUPS: { type: "string", editable: false },
-
+                            SALARY: { type: "string", editable: false },
+                            GROUPNOTES: { type: "string", editable: true },
                         }
                     }
 
@@ -93,7 +162,7 @@
 
 
             },
-            height: 600,
+            height: 500,
             filterable: true,
             sortable: true,
             editable: "inline",
@@ -112,49 +181,204 @@
 
 
 
-              //{
-              //   // field: "PENUMPANG_DESC",
-              //    //title: "<center>TIPE PENUMPANG</center>",
-              //    width: 10,
-              //    template: '<div style="text-align:center;"><input type="checkbox"  class="chkbx" /></div>',
-              //    headerTemplate: '<div style="text-align:center;"><input type="checkbox" id="SelectAll" /></div>'
-              //},
-              //{ command: [{ text: "RESCHEDULE", click: cufn_reschedule }, { text: " BATALKAN ", click: cufn_batalkan }], width: 30 },
-              {
-                  field: "NIK",
-                  title: "<center>NIK</center>",
-                  width: 20
+                     //{
+                     //   // field: "PENUMPANG_DESC",
+                     //    //title: "<center>TIPE PENUMPANG</center>",
+                     //    width: 10,
+                     //    template: '<div style="text-align:center;"><input type="checkbox"  class="chkbx" /></div>',
+                     //    headerTemplate: '<div style="text-align:center;"><input type="checkbox" id="SelectAll" /></div>'
+                     //},
+                     //{ command: [{ text: "RESCHEDULE", click: cufn_reschedule }, { text: " BATALKAN ", click: cufn_batalkan }], width: 30 },
+                     {
+                         field: "NIK",
+                         title: "<center>NIK</center>",
+                         width: 20
 
-              },
-              {
-                  field: "NAME",
-                  title: "<center>NAMA</center>",
-                  width: 55
+                     },
+                     {
+                         field: "NAME",
+                         title: "<center>NAMA</center>",
+                         width: 55
 
-              },
-              {
-                  field: "DEPTNAME",
-                  title: "<center>DEPARTEMEN</center>",
-                  width: 50,
+                     },
+                     {
+                         field: "DEPTNAME",
+                         title: "<center>DEPARTEMEN</center>",
+                         width: 50,
 
-              },
-              {
-                  field: "GROUPS",
-                  title: "<center>GROUPS</center>",
-                  width: 40,
+                     },
+                     {
+                         field: "GROUPS",
+                         title: "<center>GROUPS</center>",
+                         width: 40,
 
-              },
-              {
-                  field: "SALARY",
-                  title: "<center>UPAH AKTIF</center>",
-                  width: 40,
+                     },
+                      {
+                          field: "GROUP_BORONGAN",
+                          title: "<center>GROUP (BORONGAN)</center>",
+                          editor: editor_group,
+                          width: 40,
 
-              }
+                      },
+                     {
+                         field: "SALARY",
+                         title: "<center>UPAH AKTIF</center>",
+                         width: 40,
+
+                     }
+                        , { command: ["edit"], title: "MANAGE", width: "40px" },
+
+
+            ],
+            dataBinding: function () {
+                window.rowNo = (this.dataSource.page() - 1) * this.dataSource.pageSize();
+            }
+        });
+    }
 
 
 
+    function fn_load_grid_borongan(s_str_dept) {
 
-            ]
+        if ($("#dv_grid").data().kendoGrid != null) {
+            $("#dv_grid").data().kendoGrid.destroy();
+            $("#dv_grid").empty();
+        }
+
+        $("#dv_grid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: {
+                        url: $("#urlPath").val() + "/Employee/listemployeeborongan?paramst=" + s_str_dept,
+                        contentType: "application/json",
+                        type: "POST",
+                        cache: false
+                    },
+                    update: {
+                        url: $("#urlPath").val() + "/Employee/updategroupnotes",
+                        contentType: "application/json",
+                        type: "POST",
+                        complete: function (data) {
+                            if (data.status) {
+                             
+                                $("#dv_grid").data("kendoGrid").dataSource.read();
+                            } else {
+                                alert("Update data gagal. hubungi tim IT");
+                            }
+                        }
+                    },
+                    parameterMap: function (data, operation) {
+                        if (operation == "update") {
+                            data.GROUP_BORONGAN = $("#ddl_groupedit").data("kendoDropDownList").value();
+                            return kendo.stringify(data);
+                        }
+                        else {
+                            return kendo.stringify(data);
+                        }
+
+                    }
+                },
+                error: function (e) {
+                    if (e.errors) {
+                        alert(e.errors);
+                        this.cancelChanges();
+                    }
+                },
+                schema: {
+                    data: "Data",
+                    total: "Total",
+                    model: {
+                        id: "USERID",
+                        fields: {
+                            NIK: { type: "string", editable: false },
+                            NAME: { type: "string", editable: false },
+                            DEPTNAME: { type: "string", editable: false },
+                            GROUPS: { type: "string", editable: false },
+                            SALARY: { type: "string", editable: false },
+                            GROUPNOTES: { type: "string", editable: true },
+                        }
+                    }
+
+                },
+                pageSize: 100,
+                serverPaging: true,
+                serverFiltering: true,
+                serverSorting: false,
+
+
+            },
+            height: 500,
+            filterable: true,
+            sortable: true,
+            editable: "inline",
+            selectable: "multiple",
+            pageable: {
+                refresh: true,
+                buttonCount: 10,
+                input: true,
+                pageSizes: [50, 100, 200, 300, 500, 1000, 100000],
+                info: true,
+                messages: {
+                }
+            },
+            // toolbar: [{ text: "View", click: addIssue }],
+            columns: [
+
+
+
+                     //{
+                     //   // field: "PENUMPANG_DESC",
+                     //    //title: "<center>TIPE PENUMPANG</center>",
+                     //    width: 10,
+                     //    template: '<div style="text-align:center;"><input type="checkbox"  class="chkbx" /></div>',
+                     //    headerTemplate: '<div style="text-align:center;"><input type="checkbox" id="SelectAll" /></div>'
+                     //},
+                     //{ command: [{ text: "RESCHEDULE", click: cufn_reschedule }, { text: " BATALKAN ", click: cufn_batalkan }], width: 30 },
+                     {
+                         field: "NIK",
+                         title: "<center>NIK</center>",
+                         width: 20
+
+                     },
+                     {
+                         field: "NAME",
+                         title: "<center>NAMA</center>",
+                         width: 55
+
+                     },
+                     {
+                         field: "DEPTNAME",
+                         title: "<center>DEPARTEMEN</center>",
+                         width: 50,
+
+                     },
+                     {
+                         field: "GROUPS",
+                         title: "<center>GROUPS</center>",
+                         width: 40,
+
+                     },
+                      {
+                          field: "GROUP_BORONGAN",
+                          title: "<center>GROUP (BORONGAN)</center>",
+                          editor: editor_group,
+                          width: 40,
+
+                      },
+                     {
+                         field: "SALARY",
+                         title: "<center>UPAH AKTIF</center>",
+                         width: 40,
+
+                     }
+                        , { command: ["edit"], title: "MANAGE", width: "40px" },
+
+
+            ],
+            dataBinding: function () {
+                window.rowNo = (this.dataSource.page() - 1) * this.dataSource.pageSize();
+            }
         });
     }
 </script>

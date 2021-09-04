@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "REPORT BORONGAN";
+    ViewBag.pathParent = Url.Content("~").Substring(0, Url.Content("~").Length - 1);
+}
+
+<input type="hidden" id="urlPath" name="urlPath" value="@ViewBag.pathParent" />
+
+<form class="form-inline">
+
+
+    <div class="form-group ">
+        <label for="exampleInputEmail1">Tanggal Awal</label><br>
+        <input type="email" class="form-control" id="tgl_awal">
+
+    </div>
+    <div class="form-group mb-2">
+        <label for="tgl_akhir">Tanggal Akhir</label><br>
+        <input type="email" class="form-control" id="tgl_akhir">
+
+    </div>
+  
+
+    <br>
+
+</form>
+<button style="width:400px; height:50px; margin-left:10px;" type="submit" class="btn btn-primary" onclick="btnOnCLick();">Download Report</button>
+
+<script>
+$(document).ready(function () {
+
+    $("#tgl_awal").kendoDatePicker({
+        format: "yyyy-MM-dd",
+        value: new Date()
+        //min: new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()),
+    });
+
+    $("#tgl_akhir").kendoDatePicker({
+        format: "yyyy-MM-dd",
+        value: new Date()
+        //min: new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()),
+    });
+
+
+    
+});
+
+function btnOnCLick() {
+    window.location.href = $("#urlPath").val() + "/Report/exportBORONGAN?tglawal=" + $("#tgl_awal").val() + "&tglakhir=" + $("#tgl_akhir").val() ;
+
+}
+</script>
+
+

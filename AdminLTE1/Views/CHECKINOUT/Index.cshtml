@@ -1,0 +1,281 @@
+﻿
+@{
+    ViewBag.Title = "DATA ABSENSI KARYAWAN";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .customClass {
+        color: red;
+        animation: blink 1s linear infinite;
+    }
+
+    .customClassGreen {
+        color: green;
+        animation: blink 1s linear infinite;
+    }
+
+    .fontpage {
+        font-size:14px;
+    }
+</style>
+
+<input type="hidden" id="urlPath" name="urlPath" value="@ViewBag.pathParent" />
+<form class="form-inline">
+    GROUP : <input type="text" class="form-control " style="width:100px" id="ddl_group">
+    DEPARTMENT : <input type="text" class="form-control" id="ddl_department">
+    KARYAWAN : <input type="text" class="form-control" style="width:250px" id="empid">
+</form>
+    <BR>
+<div id="dv_grid"  style="background-color:#f6f6f6;margin-top:5px;width:97%;font-size:15px;" class="col-md-12"> </div>
+<script>
+    var p_nik = "";
+   
+    $(document).ready(function () {
+ 
+        //fn_load_grid("");
+        var dataSourceemp = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    type: "POST",
+                    contentType: "application/json",
+                    url: $("#urlPath").val() + "/Employee/ReadEmployeeAutoComplete",
+                    cache: false
+                }
+            }
+        });
+        $("#empid").kendoAutoComplete({
+            dataSource:dataSourceemp,
+            filter: "contains",
+            dataTextField: "VALUE",
+        
+            placeholder: "Select Karyawan...",         
+            change: function (e) {
+                var value = this.value();
+                var nik = value.substr(0, value.indexOf(' '));
+                p_nik = nik;
+                fn_load_grid(p_nik);
+            },
+        });
+
+
+    
+   
+        $("#ddl_department").kendoDropDownList({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: {
+                        type: "POST",
+                        contentType: "application/json",
+                        url: $("#urlPath").val() + "/DEPARTMENT/ReadDept?grp=0",
+                        cache: false
+                    }
+                }
+            },
+            change: function (e) {
+                var value = $("#ddl_department").data("kendoDropDownList").text();
+       
+                var dataSourceempfilter = dataSourceemp.filter({ field: "DEPTNAME", operator: "eq", value: value });
+                var view = dataSourceempfilter.view();
+                alert(view[0].NAME);
+                $("#empid").data("kendoAutoComplete").setDataSource(dataSourceempfilter);
+              
+              
+                
+            },
+            dataTextField: "DEPTNAME",
+            dataValueField: "DEPTID"
+        }).data("kendoDropDownList");
+
+
+        $("#ddl_group").kendoDropDownList({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: {
+                        type: "POST",
+                        contentType: "application/json",
+                        url: $("#urlPath").val() + "/DEPARTMENT/ReadGroup",
+                        cache: false
+                    }
+                }
+            },
+            change: function (e) {
+                var value = $("#ddl_group").data("kendoDropDownList").value();
+                
+                var dataSourceDept = new kendo.data.DataSource({
+                    transport: {
+                        read: {
+                            type: "POST",
+                            url: $("#urlPath").val() + "/DEPARTMENT/readDept?grp="+value,
+                            contentType: "application/json",
+                        }
+                    }
+                });
+                $("#ddl_department").data("kendoDropDownList").setDataSource(dataSourceDept);
+                $("#ddl_department").data("kendoDropDownList").refresh();
+                $("#ddl_department").data("kendoDropDownList").setOptions({ dataTextField: "DEPTNAME", dataValueField: "DEPTID" });
+            },
+            dataTextField: "DEPTNAME",
+            dataValueField: "DEPTID"
+        }).data("kendoDropDownList");
+
+    });
+
+    function editor_tipe(container, options) {
+        $('<input data-text-field="text" data-value-field="value" data-bind="value:CHECKTYPE"/>')
+        .appendTo(container)
+        .kendoDropDownList({
+            dataSource: [
+                    { text: "IN", value: "I" },
+                    { text: "OUT", value: "O" }
+            ],
+            dataTextField: "text",
+            dataValueField: "value"
+        }).data("kendoDropDownList");
+
+
+    }
+    function fn_load_grid(s_str_userid) {
+        if ($("#dv_grid").data().kendoGrid != null) {
+            $("#dv_grid").data().kendoGrid.destroy();
+            $("#dv_grid").empty();
+        }
+
+        $("#dv_grid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: {
+                        url: $("#urlPath").val() + "/CHECKINOUT/listabsen?paramst=" +s_str_userid ,
+                        contentType: "application/json",
+                        type: "POST"
+                    },
+                    update: {
+                        url: $("#urlPath").val() + "/CHECKINOUT/updatechecktipe",
+                        contentType: "application/json",
+                        type: "POST",
+                        complete: function (data) {
+                            if (data.status) {
+                                alert("Data berhasil dirubah");
+                                $("#dv_grid").data("kendoGrid").dataSource.read();
+                            } else {
+                                alert(data.responseJSON.remarks);
+                            }
+                        }
+                    },
+                    parameterMap: function (data, operation) {
+                   
+                        return kendo.stringify(data)
+                    }
+                },
+                error: function (e) {
+                    if (e.errors) {
+                        alert(e.errors);
+                        this.cancelChanges();
+                    }
+                },
+                schema: {
+                    data: "Data",
+                    total: "Total",
+                    model: {
+                        id: "USERID",
+                        fields: {
+                            USERID: { type: "number", editable: false },
+                            NAME: { type: "string", editable: false },
+                            TANGGAL: { type: "date", editable: false },
+                            CHECKTIME: { type: "string", editable: false },
+                            CHECKTYPE: { type: "string", editable: true },
+
+                        }
+                    }
+
+                },
+                pageSize: 100,
+                serverPaging: true,
+                serverFiltering: true,
+                serverSorting: false,
+
+
+            },
+            height: 600,
+            filterable: true,
+            sortable: true,
+            editable: "inline",
+            selectable: "multiple",
+            pageable: {
+                refresh: true,
+                buttonCount: 10,
+                input: true,
+                pageSizes: [50, 100, 200, 300, 500, 1000, 100000],
+                info: true,
+                messages: {
+                }
+            },
+            // toolbar: [{ text: "View", click: addIssue }],
+            columns: [
+
+
+
+              //{
+              //   // field: "PENUMPANG_DESC",
+              //    //title: "<center>TIPE PENUMPANG</center>",
+              //    width: 10,
+              //    template: '<div style="text-align:center;"><input type="checkbox"  class="chkbx" /></div>',
+              //    headerTemplate: '<div style="text-align:center;"><input type="checkbox" id="SelectAll" /></div>'
+              //},
+              //{ command: [{ text: "RESCHEDULE", click: cufn_reschedule }, { text: " BATALKAN ", click: cufn_batalkan }], width: 30 },
+              {
+                  field: "NAME",
+                  title: "<center>NAMA</center>",
+                  width: 70
+
+              },
+              {
+                  field: "TANGGAL",
+                  title: "<center>TANGGAL</center>",
+                  format: "{0: dd-MM-yyyy}",
+                  width: 40
+
+              },
+              {
+                  field: "CHECKTIME",
+                  title: "<center>FINGER</center>",
+                  format: "{0: dd-MM-yyyy HH:mm}",
+                  width: 50,
+
+
+              },
+              {
+                  field: "CHECKTYPE",
+                  title: "<center>TIPE</center>",
+                  editor: editor_tipe,
+                 
+                  width: 40,
+                  template: "#=templateFunction(data)#"
+
+              }
+              , { command: ["edit"], title: "MANAGE", width: "40px" },
+
+
+
+            ]
+        });
+    }
+
+
+
+    function templateFunction(item) {
+
+        if (item.CHECKTYPE == "I") {
+            return "<span class='customClassGreen'>" + "FINGER IN" + "</span>";
+        }
+        else {
+            return "<span class='customClass'>" + "FINGER OUT" + "</span>";
+        }
+
+        return item.Estimasi;
+    }
+
+</script>

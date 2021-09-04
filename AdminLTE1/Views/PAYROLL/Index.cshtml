@@ -3,6 +3,21 @@
     ViewBag.Title = "SETTING UPAH";
     ViewBag.pathParent = Url.Content("~").Substring(0, Url.Content("~").Length - 1);
 }
+<style>
+    .customClass {
+        color: red;
+        animation: blink 1s linear infinite;
+    }
+
+    .customClassGreen {
+        color: green;
+        animation: blink 1s linear infinite;
+    }
+
+    .fontpage {
+        font-size: 14px;
+    }
+</style>
 
 <input type="hidden" id="urlPath" name="urlPath" value="@ViewBag.pathParent" /> 
 <div id="dv_add"></div>
@@ -97,7 +112,7 @@
                                 DEPT_NAME: { type: "string", editable: false },
                                 amount: { type: "number", editable: false },
                                 active_date_start: { type: "string", editable: false },
-                                active_date_end: { type: "string", editable: false },
+                                active_date_end: { type: "string", editable: false,  },
 
                             }
                         }
@@ -160,6 +175,7 @@
                       field: "amount",
                       title: "<center>UPAH</center>",
                       width: 40,
+                      format: "{0:\\\Rp ##,#}"
 
                   },
 
@@ -175,12 +191,40 @@
                       title: "<center>TANGGAL AKHIR</center>",
                       width: 40,
 
-                  }
+                  },
+                   {
+                       field: "active_date_end",
+                       title: "<center>STATUS</center>",
+                       width: 40,
+                       template: "#=templateFunction(data)#"
+                   }
 
 
 
 
                 ]
             });
+        }
+
+        function dateTimeNow() {
+            now = new Date();
+            year = "" + now.getFullYear();
+            month = "" + (now.getMonth() + 1); if (month.length == 1) { month = "0" + month; }
+            day = "" + now.getDate(); if (day.length == 1) { day = "0" + day; }
+            hour = "" + now.getHours(); if (hour.length == 1) { hour = "0" + hour; }
+            minute = "" + now.getMinutes(); if (minute.length == 1) { minute = "0" + minute; }
+            second = "" + now.getSeconds(); if (second.length == 1) { second = "0" + second; }
+            return year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
+        }
+        function templateFunction(item) {
+
+            if (dateTimeNow()>item.active_date_end  ) {
+                return "<span class='customClass'><B>" + "EXPIRED" + "</B></span>";
+            }
+            else {
+                return "<span class='customClassGreen'><B>" + "ACTIVE" + "</B></span>";
+            }
+
+            return item.Estimasi;
         }
     </script>

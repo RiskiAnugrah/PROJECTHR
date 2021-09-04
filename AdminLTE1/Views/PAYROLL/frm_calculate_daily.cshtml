@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "CALCULATE";
+    ViewBag.pathParent = Url.Content("~").Substring(0, Url.Content("~").Length - 1);
+}
+
+<input type="hidden" id="urlPath" name="urlPath" value="@ViewBag.pathParent" />
+
+
+<form class="form-horizontal">
+
+    <div class="modal-body row" style="font-size:15px;">
+        <div class="col-md-6">
+
+
+         
+
+            <label for="fname">Tanggal :</label>
+            <input type="text" id="tglawal" name="tglawal" class="input-group"/><br>
+          
+          
+         
+        </div>
+    </div>
+
+</form>
+<br>
+<button id="btn_submit" class="btn btn-primary">CALCULATE</button>
+<button id="btn_cancel" class="btn btn-warning">CANCEL</button>
+<br />
+<img src="~/Content/img/LOADING.gif" id="loading" class="center-block" alt="EXECUTING STORED PROCEDURE">
+<script> 
+    $(document).ready(function () {
+        document.getElementById("loading").style.visibility = "hidden";
+        $("#tglawal").kendoDatePicker({
+            value: new Date(),
+            dateInput: true,
+            format: "yyyy-MM-dd"
+        });
+    });
+
+    $("#btn_submit").click(function () {
+        
+        var conf = confirm("Apakah inputan anda sudah benar?");
+
+        if (conf) {
+            var date = $("#tglawal").val();
+            document.getElementById("loading").style.visibility = "visible";
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                contentType: "application/json",
+                url: $("#urlPath").val() + "/PAYROLL/calculate?date="+date,
+      
+                success: function (response) {
+                    document.getElementById("loading").style.visibility = "hidden";
+                    alert("Exekusi berhasil");
+
+                }
+
+            });
+        }
+
+    });
+</script>
+

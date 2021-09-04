@@ -36,6 +36,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Web, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Kendo.DynamicLinq, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Kendo.DynamicLinq.1.1.2.0\lib\net40\Kendo.DynamicLinq.dll</HintPath>
       <Private>True</Private>
@@ -125,6 +129,116 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\canvasjs-3.4\canvasjs.min.js" />
+    <Content Include="Content\canvasjs-3.4\canvasjs.react.js" />
+    <Content Include="Content\canvasjs-3.4\examples\01-overview\animated-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\01-overview\chart-from-json-data.html" />
+    <Content Include="Content\canvasjs-3.4\examples\01-overview\chart-with-axis-scale-breaks.html" />
+    <Content Include="Content\canvasjs-3.4\examples\01-overview\chart-with-crosshair.html" />
+    <Content Include="Content\canvasjs-3.4\examples\01-overview\chart-with-custom-legend-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\01-overview\chart-with-image-overlay.html" />
+    <Content Include="Content\canvasjs-3.4\examples\01-overview\chart-with-index-data-label.html" />
+    <Content Include="Content\canvasjs-3.4\examples\01-overview\chart-with-inverted-reversed-axis.html" />
+    <Content Include="Content\canvasjs-3.4\examples\01-overview\chart-with-logarithmic-axis.html" />
+    <Content Include="Content\canvasjs-3.4\examples\01-overview\chart-with-secondary-axis.html" />
+    <Content Include="Content\canvasjs-3.4\examples\01-overview\chart-with-zoom-pan.html" />
+    <Content Include="Content\canvasjs-3.4\examples\01-overview\dynamic-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\01-overview\interactive-draggable-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\01-overview\multi-series-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\01-overview\null-data-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\01-overview\performance-demo.html" />
+    <Content Include="Content\canvasjs-3.4\examples\02-line-spline-step-line-charts\dashed-line-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\02-line-spline-step-line-charts\dynamic-spline-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\02-line-spline-step-line-charts\line-chart-with-axis-scale-breaks.html" />
+    <Content Include="Content\canvasjs-3.4\examples\02-line-spline-step-line-charts\line-chart-with-data-markers.html" />
+    <Content Include="Content\canvasjs-3.4\examples\02-line-spline-step-line-charts\line-chart-with-logarithmic-axis.html" />
+    <Content Include="Content\canvasjs-3.4\examples\02-line-spline-step-line-charts\line-chart-with-multiple-axis.html" />
+    <Content Include="Content\canvasjs-3.4\examples\02-line-spline-step-line-charts\line-chart-with-zoom-pan.html" />
+    <Content Include="Content\canvasjs-3.4\examples\02-line-spline-step-line-charts\line-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\02-line-spline-step-line-charts\multi-series-line-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\02-line-spline-step-line-charts\multi-series-spline-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\02-line-spline-step-line-charts\multi-series-step-line-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\02-line-spline-step-line-charts\spline-chart-with-legends.html" />
+    <Content Include="Content\canvasjs-3.4\examples\02-line-spline-step-line-charts\spline-chart-with-secondary-axis.html" />
+    <Content Include="Content\canvasjs-3.4\examples\02-line-spline-step-line-charts\spline-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\02-line-spline-step-line-charts\step-line-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\03-stacked-spline-range-area-charts\area-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\03-stacked-spline-range-area-charts\multi-series-area-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\03-stacked-spline-range-area-charts\multi-series-range-area-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\03-stacked-spline-range-area-charts\multi-series-spline-area-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\03-stacked-spline-range-area-charts\range-area-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\03-stacked-spline-range-area-charts\range-spline-area-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\03-stacked-spline-range-area-charts\spline-area-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\03-stacked-spline-range-area-charts\stacked-area-100-chart-with-date-time-axis.html" />
+    <Content Include="Content\canvasjs-3.4\examples\03-stacked-spline-range-area-charts\stacked-area-100-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\03-stacked-spline-range-area-charts\stacked-area-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\03-stacked-spline-range-area-charts\step-area-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\04-column-stacked-range-waterfall-charts\bar-chart-with-axis-scale-break.html" />
+    <Content Include="Content\canvasjs-3.4\examples\04-column-stacked-range-waterfall-charts\bar-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\04-column-stacked-range-waterfall-charts\column-chart-with-multiple-axis.html" />
+    <Content Include="Content\canvasjs-3.4\examples\04-column-stacked-range-waterfall-charts\column-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\04-column-stacked-range-waterfall-charts\multi-series-bar-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\04-column-stacked-range-waterfall-charts\multi-series-range-column-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\04-column-stacked-range-waterfall-charts\multi-series-waterfall-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\04-column-stacked-range-waterfall-charts\range-bar-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\04-column-stacked-range-waterfall-charts\range-column-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\04-column-stacked-range-waterfall-charts\stacked-bar-100-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\04-column-stacked-range-waterfall-charts\stacked-bar-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\04-column-stacked-range-waterfall-charts\stacked-column-100-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\04-column-stacked-range-waterfall-charts\stacked-column-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\04-column-stacked-range-waterfall-charts\waterfall-chart-with-custom-color.html" />
+    <Content Include="Content\canvasjs-3.4\examples\04-column-stacked-range-waterfall-charts\waterfall-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\05-pie-doughnut-funnel-pyramid-charts\doughnut-chart-with-custom-inner-radius.html" />
+    <Content Include="Content\canvasjs-3.4\examples\05-pie-doughnut-funnel-pyramid-charts\doughnut-Chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\05-pie-doughnut-funnel-pyramid-charts\funnel-chart-with-custom-neck.html" />
+    <Content Include="Content\canvasjs-3.4\examples\05-pie-doughnut-funnel-pyramid-charts\funnel-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\05-pie-doughnut-funnel-pyramid-charts\inverted-reversed-funnel-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\05-pie-doughnut-funnel-pyramid-charts\pie-chart-with-custom-radius.html" />
+    <Content Include="Content\canvasjs-3.4\examples\05-pie-doughnut-funnel-pyramid-charts\pie-chart-with-legends.html" />
+    <Content Include="Content\canvasjs-3.4\examples\05-pie-doughnut-funnel-pyramid-charts\pie-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\05-pie-doughnut-funnel-pyramid-charts\pyramid-chart-where-area-represents-value.html" />
+    <Content Include="Content\canvasjs-3.4\examples\05-pie-doughnut-funnel-pyramid-charts\pyramid-chart-with-index-label-placed-Inside.html" />
+    <Content Include="Content\canvasjs-3.4\examples\05-pie-doughnut-funnel-pyramid-charts\pyramid-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\06-candlestick-ohlc-charts\candlestick-line-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\06-candlestick-ohlc-charts\multi-series-candlestick-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\06-candlestick-ohlc-charts\ohlc-chart-from-json-data.html" />
+    <Content Include="Content\canvasjs-3.4\examples\06-candlestick-ohlc-charts\ohlc-stock-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\07-scatter-bubble-charts\bubble-chart-with-data-marker.html" />
+    <Content Include="Content\canvasjs-3.4\examples\07-scatter-bubble-charts\bubble-chart-with-zoom-pan.html" />
+    <Content Include="Content\canvasjs-3.4\examples\07-scatter-bubble-charts\bubble-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\07-scatter-bubble-charts\multi-series-scatter-point-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\07-scatter-bubble-charts\scatter-point-chart-with-custom-marker.html" />
+    <Content Include="Content\canvasjs-3.4\examples\07-scatter-bubble-charts\scatter-point-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\08-box-and-whisker-charts\box-and-whisker-chart-with-custom-color.html" />
+    <Content Include="Content\canvasjs-3.4\examples\08-box-and-whisker-charts\box-and-whisker-chart-with-outliers.html" />
+    <Content Include="Content\canvasjs-3.4\examples\08-box-and-whisker-charts\box-and-whisker-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\09-combination-charts\column-line-area-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\09-combination-charts\error-bar-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\09-combination-charts\error-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\09-combination-charts\error-line-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\09-combination-charts\ohlc-line-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\09-combination-charts\pareto-chart-with-index-data-label.html" />
+    <Content Include="Content\canvasjs-3.4\examples\09-combination-charts\pareto-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\09-combination-charts\range-area-line-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\10-dynamic-charts\dynamic-column-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\10-dynamic-charts\dynamic-line-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\10-dynamic-charts\dynamic-multi-series-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\11-integration\jquery-charts.html" />
+    <Content Include="Content\canvasjs-3.4\examples\11-integration\jquery-line-chart-with-zoom-pan.html" />
+    <Content Include="Content\canvasjs-3.4\examples\11-integration\jquery-resizable-chart.html" />
+    <Content Include="Content\canvasjs-3.4\examples\11-integration\jquery-spline-area-chart-in-tab.html" />
+    <Content Include="Content\canvasjs-3.4\examples\11-integration\jquery-spline-chart-with-image-export.html" />
+    <Content Include="Content\canvasjs-3.4\instruction.txt" />
+    <Content Include="Content\canvasjs-3.4\jquery.canvasjs.min.js" />
+    <Content Include="Content\canvasjs-3.4\license.txt" />
+    <Content Include="Content\img\AVATAR.png" />
+    <Content Include="Content\img\calculate.gif" />
+    <Content Include="Content\img\finger.gif" />
+    <Content Include="Content\img\loading.gif" />
+    <Content Include="Content\img\Logo PMS.gif" />
+    <Content Include="Content\img\masterkaryawan.gif" />
+    <Content Include="Content\img\tarifborongan.gif" />
+    <Content Include="Content\img\upah.gif" />
     <Content Include="Content\Login\css\main.css" />
     <Content Include="Content\Login\css\style.css" />
     <Content Include="Content\Login\css\util.css" />
@@ -746,6 +860,15 @@
     <Content Include="Views\Employee\Frm_view_karyawan.cshtml" />
     <Content Include="Views\PAYROLL\Index.cshtml" />
     <Content Include="Views\PAYROLL\frm_inputUpah.cshtml" />
+    <Content Include="Views\Report\rptSLIP.cshtml" />
+    <Content Include="Views\CHECKINOUT\Index.cshtml" />
+    <Content Include="Views\PAYROLL\frm_calculate_daily.cshtml" />
+    <Content Include="Views\PAYROLL\frm_inputBorongan.cshtml" />
+    <Content Include="Views\PAYROLL\IndexBorongan.cshtml" />
+    <Content Include="Views\Report\rptBorongan.cshtml" />
+    <Content Include="Views\Report\rptBoronganHRD.cshtml" />
+    <Content Include="Views\Report\rptGajiBorongan.cshtml" />
+    <Content Include="Views\Home\Index - Copy.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -755,10 +878,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CHECKINOUTController.cs" />
     <Compile Include="Controllers\DEPARTMENTController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\PAYROLLController.cs" />
-    <Compile Include="Models\DB_FINGER.designer.cs">
+    <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Models\DB_FINGER1.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DB_FINGER.dbml</DependentUpon>
@@ -767,6 +892,33 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Report\rptBorongan.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptBorongan.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\rptBoronganHRD.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptBoronganHRD.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\rptSLIP.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\rptSLIP1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSLIP.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Report\rptSlipGroupBorongan.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSlipGroupBorongan.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Security\SessionCheck.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -895,17 +1047,37 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ReportFORM\" />
     <Folder Include="Views\DEPARTMENT\" />
     <Folder Include="Views\Login\" />
     <Folder Include="Views\Master\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Models\DB_FINGER.dbml.layout">
       <DependentUpon>DB_FINGER.dbml</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Report\rptBorongan.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptBorongan.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\rptBoronganHRD.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptBoronganHRD.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\rptSLIP.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSLIP1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\rptSlipGroupBorongan.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSlipGroupBorongan.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

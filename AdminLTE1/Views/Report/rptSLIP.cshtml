@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "REPORT KEHADIRAN";
+    ViewBag.pathParent = Url.Content("~").Substring(0, Url.Content("~").Length - 1);
+}
+
+<input type="hidden" id="urlPath" name="urlPath" value="@ViewBag.pathParent" />
+
+<form class="form-inline">
+   
+
+        <div class="form-group ">
+            <label for="exampleInputEmail1">Tanggal Awal</label><br>
+            <input type="email" class="form-control" id="tgl_awal">
+
+        </div>
+        <div class="form-group mb-2">
+            <label for="tgl_akhir">Tanggal Akhir</label><br>
+            <input type="email" class="form-control" id="tgl_akhir">
+    
+        </div>
+        <div class="form-group">
+            <label for="userid">Karyawan</label><br>
+            <input type="email" class="form-control" id="userid" style="width:800px">
+            <small id="karyawan" class="form-text text-muted">Pilih user.</small>
+        </div>
+
+    <br>
+       
+</form>
+<button style="width:400px; height:50px; margin-left:10px;" type="submit" class="btn btn-primary" onclick="btnOnCLick();">Download Report</button>
+
+<script>
+$(document).ready(function () {
+
+    $("#tgl_awal").kendoDatePicker({
+        format: "yyyy-MM-dd",
+        value: new Date()
+        //min: new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()),
+    });
+
+    $("#tgl_akhir").kendoDatePicker({
+        format: "yyyy-MM-dd",
+        value: new Date()
+        //min: new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()),
+    });
+
+
+    $("#userid").kendoMultiSelect({
+        async: false,
+        dataSource: {
+            type: "json",
+
+            transport: {
+                read: {
+                    type: "POST",
+                    contentType: "application/json",
+                    url: $("#urlPath").val() + "/Employee/ReadEmployeeAutoComplete",
+                    cache: false
+                }
+            }
+        },
+        filter: "contains",
+        dataTextField: "VALUE",
+        dataValueField: "USERID",
+
+        placeholder: "Select Karyawan...",
+        
+    });
+});
+
+function btnOnCLick() {
+    window.location.href = $("#urlPath").val() + "/Report/exportSLIP?userid=" + $("#userid").data("kendoMultiSelect").value() + "&tglawal=" + $("#tgl_awal").val() + "&tglakhir=" + $("#tgl_akhir").val() ;
+  
+}
+</script>
+
+

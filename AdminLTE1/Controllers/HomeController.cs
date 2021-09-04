@@ -7,6 +7,7 @@ namespace AdminLTE1.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+
             return View();
         }
 

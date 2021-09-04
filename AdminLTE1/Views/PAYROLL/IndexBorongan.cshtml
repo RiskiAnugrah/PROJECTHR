@@ -1,0 +1,226 @@
+﻿
+@{
+    ViewBag.Title = "SETTING TARIF BORONGAN";
+    ViewBag.pathParent = Url.Content("~").Substring(0, Url.Content("~").Length - 1);
+}
+<style>
+    .customClass {
+        color: red;
+        animation: blink 1s linear infinite;
+    }
+
+    .customClassGreen {
+        color: green;
+        animation: blink 1s linear infinite;
+    }
+
+    .fontpage {
+        font-size: 14px;
+    }
+</style>
+
+<input type="hidden" id="urlPath" name="urlPath" value="@ViewBag.pathParent" />
+<div id="dv_add"></div>
+<div class="form-group">
+    <div class="col-xs-3">
+        <input type="text" id="tbsearch" class="form-control" placeholder="Cari tarif item.." onchange="SEARCHFunction()" name="search">
+    </div>
+    <div>
+        <button type="button" style="" class="btn btn-primary" onclick="tambahUpah()">Input Setting Tarif</button>
+    </div>
+    <br>
+        <label style="margin-left:20px"><i>*Ketik kode/nama item kemudian enter untuk search</i></label>
+</div>
+<br>
+<div id="dv_grid"></div>
+<script>
+        $(document).ready(function () {
+            $("#dv_add").kendoWindow({
+                width: 360,
+                height: 635,
+                iframe: true,
+                modal: true,
+                resizable: false,
+                close: onModalClose,
+                visible: false
+            }).data("kendoWindow");
+
+        });
+
+
+        function onModalClose() {
+
+        }
+
+
+        function tambahUpah() {
+            var win = $("#dv_add").data("kendoWindow");
+            win.title("INPUT TARIF");
+            win.refresh({ url: $("#urlPath").val() + '/PAYROLL/frm_inputBorongan' });
+
+            win.center().open();
+        }
+
+        function SEARCHFunction() {
+            if ($("#tbsearch").val() == "") {
+                var grid = $("#dv_grid").data("kendoGrid");
+                grid.destroy();
+            }
+            else {
+                fn_load_grid($("#tbsearch").val())
+            }
+        }
+
+
+
+        function fn_load_grid(s_str_search) {
+            $("#dv_grid").kendoGrid({
+                dataSource: {
+                    batch: true,
+                    transport: {
+                        read: {
+                            url: $("#urlPath").val() + "/PAYROLL/listtarifborongan?paramst=" + s_str_search,
+                            contentType: "application/json",
+                            type: "POST"
+                        },
+                        parameterMap: function (data, operation) {
+                            if (operation == "read") {
+                                //data.TIKET_TAKE_UP_DOK = "" + $("#id_dok").val() + "";
+                                //data.s_tipe = 'KODE';
+                            } else if (operation == "create") {
+
+                            } else if (operation == "update") {
+
+                            } else if (operation == "destroy") {
+
+                            }
+                            return kendo.stringify(data)
+                        }
+                    },
+                    error: function (e) {
+                        if (e.errors) {
+                            alert(e.errors);
+                            this.cancelChanges();
+                        }
+                    },
+                    schema: {
+                        data: "Data",
+                        total: "Total",
+                        model: {
+                            id: "id",
+                            fields: {
+                                itemcode: { type: "string", editable: false },
+                                itemlocaldesc: { type: "string", editable: false },  
+                                tarif: { type: "number", editable: false },
+                                start_date: { type: "string", editable: false },
+                                end_date: { type: "string", editable: false,  },
+
+                            }
+                        }
+
+                    },
+                    pageSize: 100,
+                    serverPaging: true,
+                    serverFiltering: true,
+                    serverSorting: false,
+
+
+                },
+                height: 600,
+                filterable: true,
+                sortable: true,
+                editable: "inline",
+                selectable: "multiple",
+                pageable: {
+                    refresh: true,
+                    buttonCount: 10,
+                    input: true,
+                    pageSizes: [50, 100, 200, 300, 500, 1000, 100000],
+                    info: true,
+                    messages: {
+                    }
+                },
+                // toolbar: [{ text: "View", click: addIssue }],
+                columns: [
+
+
+
+                  //{
+                  //   // field: "PENUMPANG_DESC",
+                  //    //title: "<center>TIPE PENUMPANG</center>",
+                  //    width: 10,
+                  //    template: '<div style="text-align:center;"><input type="checkbox"  class="chkbx" /></div>',
+                  //    headerTemplate: '<div style="text-align:center;"><input type="checkbox" id="SelectAll" /></div>'
+                  //},
+                  //{ command: [{ text: "RESCHEDULE", click: cufn_reschedule }, { text: " BATALKAN ", click: cufn_batalkan }], width: 30 },
+                  {
+                      field: "itemcode",
+                      title: "<center>KODE BAHAN</center>",
+                      width: 20
+
+                  },
+                  {
+                      field: "itemlocaldesc",
+                      title: "<center>BAHAN</center>",
+                      width: 55
+
+                  },
+               
+
+                  {
+                      field: "tarif",
+                      title: "<center>TARIF PER KG</center>",
+                      width: 40,
+                      format: "{0:\\\Rp ##,#}"
+
+                  },
+
+                  {
+                      field: "start_date",
+                      title: "<center>TANGGAL AWAL</center>",
+                      width: 40,
+
+                  },
+
+                  {
+                      field: "end_date",
+                      title: "<center>TANGGAL AKHIR</center>",
+                      width: 40,
+
+                  },
+                   {
+                       field: "active_date_end",
+                       title: "<center>STATUS</center>",
+                       width: 40,
+                       template: "#=templateFunction(data)#"
+                   }
+
+
+
+
+                ]
+            });
+        }
+
+        function dateTimeNow() {
+            now = new Date();
+            year = "" + now.getFullYear();
+            month = "" + (now.getMonth() + 1); if (month.length == 1) { month = "0" + month; }
+            day = "" + now.getDate(); if (day.length == 1) { day = "0" + day; }
+            hour = "" + now.getHours(); if (hour.length == 1) { hour = "0" + hour; }
+            minute = "" + now.getMinutes(); if (minute.length == 1) { minute = "0" + minute; }
+            second = "" + now.getSeconds(); if (second.length == 1) { second = "0" + second; }
+            return year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
+        }
+        function templateFunction(item) {
+
+            if (dateTimeNow()>item.active_date_end  ) {
+                return "<span class='customClass'><B>" + "EXPIRED" + "</B></span>";
+            }
+            else {
+                return "<span class='customClassGreen'><B>" + "ACTIVE" + "</B></span>";
+            }
+
+            return item.Estimasi;
+        }
+</script>

@@ -14,7 +14,8 @@
     </title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-    @Styles.Render("~/Bundles/css")
+    <link rel="icon" type="image/gif" href="~/Content/img/Logo PMS.gif" />
+     @Styles.Render("~/Bundles/css")
     @Scripts.Render("~/Bundles/js")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
@@ -45,6 +46,21 @@
             <section class="content">
                 @RenderBody()
             </section>
+            <section class="fixed-bottom" style="position:absolute;bottom:0;">
+
+                <footer class="text-center text-white fixed-bottom">
+                    <!-- Grid container -->
+                    <div class="container p-2"></div>
+                    <!-- Grid container -->
+                    <!-- Copyright -->
+                    <div class="text-center text-white p-4" style="height:30px" >
+                        <a class="text-white">© 2021 Copyright:</a>
+                        <a class="text-white" href="https://pelitamekarsemesta.com/">IT SYSTEM DEVELOPMENT PT.PELITA MEKAR SEMESTA</a>
+                    </div>
+                    <!-- Copyright -->
+                </footer>
+
+            </section>
         </div>
 
         @Html.Partial("_ControlSidebar")
@@ -56,3 +72,7 @@
     @RenderSection("ViewSpecificJavascript", required: false)
 </body>
 </html>
+
+<script>
+   
+</script>
