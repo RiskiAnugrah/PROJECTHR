@@ -173,17 +173,6 @@
       <Column Name="UserExtFmt" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.VW_ABSEN" Member="VW_ABSENs">
-    <Type Name="VW_ABSEN">
-      <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="NAME" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
-      <Column Name="DEPTNAME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="GROUPS" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="TANGGAL" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="CHECKTIME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="CHECKTYPE" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.VW_GROUP_BORONGAN" Member="VW_GROUP_BORONGANs">
     <Type Name="VW_GROUP_BORONGAN">
       <Column Name="kelompokoid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -288,6 +277,27 @@
     <Type Name="VW_ITEM_BORONGAN_AUTOCOMPLETE">
       <Column Name="itemoid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="VALUE" Type="System.String" DbType="VarChar(181) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TBL_M_USER" Member="TBL_M_USERs">
+    <Type Name="TBL_M_USER">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="akses" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="userinfoid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_ABSEN" Member="VW_ABSENs">
+    <Type Name="VW_ABSEN">
+      <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BADGENUMBER" Type="System.String" DbType="VarChar(24)" CanBeNull="true" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="DEPTNAME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="GROUPS" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="TANGGAL" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CHECKTIME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CHECKTYPE" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.EXTRACT_DATA_ABSEN" Method="EXTRACT_DATA_ABSEN">

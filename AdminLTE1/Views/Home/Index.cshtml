@@ -1,16 +1,17 @@
 ﻿@{
- 
+
     ViewBag.Description = "Hello " + @Session["NAMA"];
+    ViewBag.pathParent = Url.Content("~").Substring(0, Url.Content("~").Length - 1);
 }
 
 <div class="row">
     <span class="label label-success" style="width:50px">Master</span>
     <div class="column">
-        <div class="col-sm-2 col-md-2">
-            <div class="thumbnail">
+        <div class="col-sm-3 col-md-3">
+            <div class="thumbnail" style="min-height: 200px;max-height: 200px;">
                 <img src="~/Content/img/masterkaryawan.gif" style="background-size:cover" width="85px" alt="MASTER KARYAWAN">
                 <div class="caption">
-                    <h4>Master Karyawan</h4>
+                    <h5>Master Karyawan</h5>
               
                     <p><a href="@Url.Action("Frm_view_karyawan", "employee")" target="_blank" class="btn btn-primary"  role="button">Buka</a></p>
                 </div>
@@ -20,11 +21,11 @@
 
     <div class="column">
 
-        <div class="col-sm-2 col-md-2">
-            <div class="thumbnail">
+        <div class="col-sm-3 col-md-3">
+            <div class="thumbnail" style="min-height: 200px;max-height: 200px;">
                 <img src="~/Content/img/tarifborongan.gif" style="background-size:cover" width="135px" alt="BORONGAN">
                 <div class="caption">
-                    <h4>Tarif Borongan</h4>
+                    <h5>Tarif Borongan</h5>
 
                     <p><a href="@Url.Action("indexBorongan", "PAYROLL")" target="_blank" class="btn btn-primary" role="button">Buka</a> </p>
                 </div>
@@ -36,11 +37,11 @@
 <div class="row">
     <span class="label label-info">Transaction</span>
     <div class="column">
-        <div class="col-sm-2 col-md-2">
-            <div class="thumbnail">
-                <img src="~/Content/img/finger.gif" style="background-size:cover"   alt="BORONGAN">
+        <div class="col-sm-3 col-md-3">
+            <div class="thumbnail" style="min-height: 200px;max-height: 200px;">
+                <img src="~/Content/img/finger.gif" style="background-size:cover; min-height: 100px;max-height: 100px;"   alt="BORONGAN">
                 <div class="caption">
-                    <h4>Absensi</h4>
+                    <h5>Absensi</h5>
 
                     <p><a href="@Url.Action("INDEX", "CHECKINOUT")" target="_blank" class="btn btn-primary" role="button">Buka</a> </p>
                 </div>
@@ -48,11 +49,11 @@
         </div>
     </div>
     <div class="column">
-        <div class="col-sm-2 col-md-2">
-            <div class="thumbnail">
+        <div class="col-sm-3 col-md-3">
+            <div class="thumbnail" style="min-height: 200px;max-height: 200px;">
                 <img src="~/Content/img/calculate.gif" style="background-size:cover" width="130px"  alt="BORONGAN">
                 <div class="caption">
-                    <h4>Kalkulasi Absen</h4>
+                    <h5>Kalkulasi Absen</h5>
 
                     <p><a href="@Url.Action("frm_calculate_daily", "PAYROLL")" target="_blank" class="btn btn-primary" role="button">Buka</a> </p>
                 </div>
@@ -61,11 +62,11 @@
     </div>
 
     <div class="column">
-        <div class="col-sm-2 col-md-2">
-            <div class="thumbnail">
+        <div class="col-sm-3 col-md-3" >
+            <div class="thumbnail" style="min-height: 200px;max-height: 200px;">
                 <img src="~/Content/img/upah.gif" style="background-size:cover" width="130px" alt="BORONGAN">
                 <div class="caption">
-                    <h4>Gaji Harian/Bulanan</h4>
+                    <h5>Gaji Harian/Bulanan</h5>
 
                     <p><a href="@Url.Action("INDEX", "PAYROLL")" target="_blank" class="btn btn-primary" role="button">Buka</a> </p>
                 </div>
@@ -77,7 +78,7 @@
     <span class="label label-danger">Report</span>
     <div class="column">
 
-        <div class="col-sm-2 col-md-3">
+        <div class="col-sm-3 col-md-3">
             <div class="thumbnail">
 
                 <div class="caption">
@@ -90,7 +91,7 @@
     </div>
     <div class="column">
 
-        <div class="col-sm-2 col-md-3">
+        <div class="col-sm-3 col-md-3">
             <div class="thumbnail">
 
                 <div class="caption">
@@ -103,7 +104,7 @@
     </div>
     <div class="column">
 
-        <div class="col-sm-2 col-md-3">
+        <div class="col-sm-3 col-md-3">
             <div class="thumbnail">
 
                 <div class="caption">
@@ -116,7 +117,7 @@
     </div>
     <div class="column">
 
-        <div class="col-sm-2 col-md-3">
+        <div class="col-sm-3 col-md-3">
             <div class="thumbnail">
 
                 <div class="caption">

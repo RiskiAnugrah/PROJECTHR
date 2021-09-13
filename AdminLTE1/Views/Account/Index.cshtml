@@ -33,7 +33,7 @@
             <div class="wrap-login100">
                 <div class="login100-form-title" style="background-image: url(@ViewBag.pathParent/Content/Login/images/tiket.gif);">
                     <span class="login100-form-title-1">
-                        <img src="~/Content/img/Logo PMS.gif" width="75px" style="margin:3px;" />
+                        <img src="~/Content/img/Logo PMS.gif" width="75" style="margin:3px;" />
                     </span>
                 </div>
                 <center><br /><span style="font-family:Georgia, 'Times New Roman', Times, serif;font-size:20px"><b><i>PAYROLL NON STAFF</i></b> <br>PT. PELITA MEKAR SEMESTA</span></center>
@@ -51,7 +51,7 @@
                     </div>
 
                     <p>
-                        <select id="sldomain" class="input100" style="margin-top:20px;color:">
+                        <select id="sldomain" class="input100" style="margin-top:20px;">
                             <option>PT.PMS</option>
                       
                         </select>
@@ -81,8 +81,23 @@
 
      $(document).ready(function () {
          ceksession();
+
+       
      });
 
+
+     var input = document.getElementById("Password");
+
+     // Execute a function when the user releases a key on the keyboard
+     input.addEventListener("keyup", function (event) {
+         // Number 13 is the "Enter" key on the keyboard
+         if (event.keyCode === 13) {
+             // Cancel the default action, if needed
+             event.preventDefault();
+             // Trigger the button element with a click
+             document.getElementById("btnlogin").click();
+         }
+     });
      function ceklogin() {
          if ($("#UserName").val() == "") {
              alert("Username nya diisi ya..")

@@ -47,11 +47,7 @@ namespace AdminLTE1.App_Start
             //Tell ASP.NET bundles to allow minified files in debug mode.
             bundles.IgnoreList.Clear();
 
-#if DEBUG
-            BundleTable.EnableOptimizations = false;
-#else
-            BundleTable.EnableOptimizations = true;
-#endif
+
         }
     }
 }

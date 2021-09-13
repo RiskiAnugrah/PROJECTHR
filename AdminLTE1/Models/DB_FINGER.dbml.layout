@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.625" name="DB_FINGER">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DB_FINGER">
   <DataContextMoniker Name="/DB_FINGERDataContext" />
   <nestedChildShapes>
     <classShape Id="7eb9b1a2-a90f-4732-92bd-8a4bb6fb8f46" isExpanded="false" absoluteBounds="2.625, 0.5, 2, 0.45">
@@ -56,16 +56,10 @@
         <elementListCompartment Id="030720e8-1f7b-4321-9040-1f6db832e6f2" absoluteBounds="2.64, 2.835, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="472df251-f13f-4d6a-9376-3bf77f09f704" absoluteBounds="0.625, 5.75, 2, 2.5401025390625">
+    <classShape Id="472df251-f13f-4d6a-9376-3bf77f09f704" isExpanded="false" absoluteBounds="0.5, 4.25, 2, 0.45">
       <DataClassMoniker Name="/DB_FINGERDataContext/CHECKINOUT" />
       <nestedChildShapes>
-        <elementListCompartment Id="53dc57ea-92d9-42c9-8c2c-d148a763765b" absoluteBounds="0.64000000000000012, 6.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="dbaa0e8e-bf1f-42c1-b315-b22f6ab07b3e" absoluteBounds="4.25, 6.25, 2, 2.1554996744791666">
-      <DataClassMoniker Name="/DB_FINGERDataContext/VW_ABSEN" />
-      <nestedChildShapes>
-        <elementListCompartment Id="1ec358e8-62f6-4c71-a9f7-520d66f66a94" absoluteBounds="4.265, 6.71, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="53dc57ea-92d9-42c9-8c2c-d148a763765b" absoluteBounds="0.51500000000000012, 4.71, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="b00d7a7d-06ef-42d2-b9d8-25b07da31769" isExpanded="false" absoluteBounds="0.5, 3, 2, 0.45">
@@ -114,6 +108,18 @@
       <DataClassMoniker Name="/DB_FINGERDataContext/VW_ITEM_BORONGAN_AUTOCOMPLETE" />
       <nestedChildShapes>
         <elementListCompartment Id="80e7abc8-1722-491d-b840-90888f264b2e" absoluteBounds="2.64, 4.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f065daa3-d82a-4998-908c-a2d1edc0d2b2" isExpanded="false" absoluteBounds="4.75, 3.625, 2, 0.45">
+      <DataClassMoniker Name="/DB_FINGERDataContext/TBL_M_USER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="33a5cb6d-3dbd-4cdb-8b74-ceb0582e254e" absoluteBounds="4.765, 4.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="70baad73-e58f-4c55-867a-c57dd095c50e" isExpanded="false" absoluteBounds="4.75, 4.25, 2, 0.45">
+      <DataClassMoniker Name="/DB_FINGERDataContext/VW_ABSEN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4e3605e6-14aa-4219-87fd-2e79e9f84f19" absoluteBounds="4.765, 4.71, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

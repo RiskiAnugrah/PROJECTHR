@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "DATA ABSENSI KARYAWAN";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.pathParent = Url.Content("~").Substring(0, Url.Content("~").Length - 1);
 }
 
 <style>
@@ -183,6 +184,7 @@
                         id: "USERID",
                         fields: {
                             USERID: { type: "number", editable: false },
+                            BADGENUMBER: { type: "string", editable: false },
                             NAME: { type: "string", editable: false },
                             TANGGAL: { type: "date", editable: false },
                             CHECKTIME: { type: "string", editable: false },
@@ -199,7 +201,7 @@
 
 
             },
-            height: 600,
+            height:500,
             filterable: true,
             sortable: true,
             editable: "inline",
@@ -226,7 +228,13 @@
               //    headerTemplate: '<div style="text-align:center;"><input type="checkbox" id="SelectAll" /></div>'
               //},
               //{ command: [{ text: "RESCHEDULE", click: cufn_reschedule }, { text: " BATALKAN ", click: cufn_batalkan }], width: 30 },
-              {
+               {
+                   field: "BADGENUMBER",
+                   title: "<center>NIK</center>",
+                   width: 70
+
+               },
+             {
                   field: "NAME",
                   title: "<center>NAMA</center>",
                   width: 70

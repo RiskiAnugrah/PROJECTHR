@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using AdminLTE1.Models;
 using System.Web.Security;
+using AdminLTE1.Security;
+using Kendo.DynamicLinq;
 
 namespace AdminLTE1.Controllers
 {
@@ -16,6 +18,80 @@ namespace AdminLTE1.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        [SessionCheck]
+        public ActionResult FrmListUser()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult listuser(int take, int skip, IEnumerable<Kendo.DynamicLinq.Sort> sort, Kendo.DynamicLinq.Filter filter)
+        {
+            try
+            {
+                IQueryable<VW_M_USER> i_tbl_t;
+
+                dbctx = new DB_FINGERDataContext();
+                
+                    i_tbl_t = dbctx.VW_M_USERs;
+
+
+              
+                return Json(i_tbl_t.ToDataSourceResult(take, skip, sort, filter));
+            }
+            catch (Exception ex)
+            {
+                return this.Json(ex);
+            }
+        }
+
+
+        [HttpPost]
+        public ActionResult edituser(VW_M_USER s_tbl)
+        {
+            try
+            {
+                dbctx = new DB_FINGERDataContext();
+
+                TBL_M_USER i_tbl =dbctx.TBL_M_USERs.Where(o => o.id.Equals(s_tbl.id)).FirstOrDefault();
+                i_tbl.password = s_tbl.password;
+                i_tbl.akses = s_tbl.akses;
+
+
+                dbctx.SubmitChanges();
+
+                return Json(new { remarks = "data berhasil diubah", STATUS = true });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { remarks = ex.ToString(), STATUS = false });
+            }
+        }
+
+        [HttpPost]
+        public ActionResult insertVendorKendo(TBL_M_USER s_tbl_m_vendor)
+        {
+            try
+            {
+                dbctx = new DB_FINGERDataContext();
+
+                TBL_M_USER i_tbl_m_vendor = new TBL_M_USER();
+                i_tbl_m_vendor.username = s_tbl_m_vendor.username;
+                i_tbl_m_vendor.password = s_tbl_m_vendor.password;
+
+                i_tbl_m_vendor.akses = s_tbl_m_vendor.akses;
+
+                dbctx.TBL_M_USERs.InsertOnSubmit(i_tbl_m_vendor);
+                dbctx.SubmitChanges();
+
+                return Json(new { remarks = "data berhasil ditambahkan", STATUS = true });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { remarks = ex.ToString(), STATUS = false });
+            }
         }
 
         [HttpPost]
@@ -36,8 +112,9 @@ namespace AdminLTE1.Controllers
                         Session["NAMA"] = data.NAME;
                         Session["DEPT"] = data.DEPTNAME;
                         Session["DEPT_DESC"] = data.DEPTNAME.ToString().ToUpper();
+                        Session["AKSES"] = data.akses.ToString().ToUpper();
 
-                    }
+                }
 
                     return RedirectToAction("Index", "account");
 

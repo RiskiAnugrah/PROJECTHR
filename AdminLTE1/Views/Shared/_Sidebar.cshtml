@@ -27,8 +27,12 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="@Url.Action("Frm_view_karyawan", "employee")">Karyawan</a></li>
+                    @if (Session["AKSES"].ToString() == "ADMIN") { 
+                     <li><a href="@Url.Action("Frmlistuser", "Account")">User</a></li>
+                    }
+                     <li><a href="@Url.Action("Frm_view_karyawan", "employee")">Karyawan</a></li>
                     <li><a href="@Url.Action("indexBorongan", "PAYROLL")">Tarif Borongan</a></li>
+
                 </ul>
             </li>
             <li class="treeview">
@@ -39,11 +43,18 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="@Url.Action("INDEX", "PAYROLL")">Upah</a></li>
-                    <li><a href="@Url.Action("INDEX", "CHECKINOUT")">Absensi</a></li>
-                   
-                    <li><a href="@Url.Action("frm_calculate_daily", "PAYROLL")">Calculate</a></li>
-                 
+           
+                    @if (Session["AKSES"].ToString() != "PRODUKSI")
+                    {
+                        <li><a href="@Url.Action("INDEX", "PAYROLL")">Upah</a></li>
+
+                        <li><a href="@Url.Action("INDEX", "CHECKINOUT")">Absensi</a></li>
+
+
+                        <li><a href="@Url.Action("frm_calculate_daily", "PAYROLL")">Calculate</a></li>
+                    }
+
+
                 </ul>
             </li>
 

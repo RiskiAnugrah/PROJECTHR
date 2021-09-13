@@ -51,6 +51,9 @@ namespace AdminLTE1.Models
     partial void InsertTBL_T_TARIF_BORONGAN(TBL_T_TARIF_BORONGAN instance);
     partial void UpdateTBL_T_TARIF_BORONGAN(TBL_T_TARIF_BORONGAN instance);
     partial void DeleteTBL_T_TARIF_BORONGAN(TBL_T_TARIF_BORONGAN instance);
+    partial void InsertTBL_M_USER(TBL_M_USER instance);
+    partial void UpdateTBL_M_USER(TBL_M_USER instance);
+    partial void DeleteTBL_M_USER(TBL_M_USER instance);
     #endregion
 		
 		public DB_FINGERDataContext() : 
@@ -163,14 +166,6 @@ namespace AdminLTE1.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<VW_ABSEN> VW_ABSENs
-		{
-			get
-			{
-				return this.GetTable<VW_ABSEN>();
-			}
-		}
-		
 		public System.Data.Linq.Table<VW_GROUP_BORONGAN> VW_GROUP_BORONGANs
 		{
 			get
@@ -232,6 +227,22 @@ namespace AdminLTE1.Models
 			get
 			{
 				return this.GetTable<VW_ITEM_BORONGAN_AUTOCOMPLETE>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBL_M_USER> TBL_M_USERs
+		{
+			get
+			{
+				return this.GetTable<TBL_M_USER>();
+			}
+		}
+		
+		public System.Data.Linq.Table<VW_ABSEN> VW_ABSENs
+		{
+			get
+			{
+				return this.GetTable<VW_ABSEN>();
 			}
 		}
 		
@@ -3133,141 +3144,6 @@ namespace AdminLTE1.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_ABSEN")]
-	public partial class VW_ABSEN
-	{
-		
-		private int _USERID;
-		
-		private string _NAME;
-		
-		private string _DEPTNAME;
-		
-		private string _GROUPS;
-		
-		private System.Nullable<System.DateTime> _TANGGAL;
-		
-		private string _CHECKTIME;
-		
-		private string _CHECKTYPE;
-		
-		public VW_ABSEN()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERID", DbType="Int NOT NULL")]
-		public int USERID
-		{
-			get
-			{
-				return this._USERID;
-			}
-			set
-			{
-				if ((this._USERID != value))
-				{
-					this._USERID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="VarChar(40)")]
-		public string NAME
-		{
-			get
-			{
-				return this._NAME;
-			}
-			set
-			{
-				if ((this._NAME != value))
-				{
-					this._NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEPTNAME", DbType="VarChar(30)")]
-		public string DEPTNAME
-		{
-			get
-			{
-				return this._DEPTNAME;
-			}
-			set
-			{
-				if ((this._DEPTNAME != value))
-				{
-					this._DEPTNAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GROUPS", DbType="VarChar(30)")]
-		public string GROUPS
-		{
-			get
-			{
-				return this._GROUPS;
-			}
-			set
-			{
-				if ((this._GROUPS != value))
-				{
-					this._GROUPS = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TANGGAL", DbType="Date")]
-		public System.Nullable<System.DateTime> TANGGAL
-		{
-			get
-			{
-				return this._TANGGAL;
-			}
-			set
-			{
-				if ((this._TANGGAL != value))
-				{
-					this._TANGGAL = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHECKTIME", DbType="VarChar(50)")]
-		public string CHECKTIME
-		{
-			get
-			{
-				return this._CHECKTIME;
-			}
-			set
-			{
-				if ((this._CHECKTIME != value))
-				{
-					this._CHECKTIME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHECKTYPE", DbType="VarChar(1)")]
-		public string CHECKTYPE
-		{
-			get
-			{
-				return this._CHECKTYPE;
-			}
-			set
-			{
-				if ((this._CHECKTYPE != value))
-				{
-					this._CHECKTYPE = value;
-				}
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_GROUP_BORONGAN")]
 	public partial class VW_GROUP_BORONGAN
 	{
@@ -4995,6 +4871,317 @@ namespace AdminLTE1.Models
 				if ((this._VALUE != value))
 				{
 					this._VALUE = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_M_USER")]
+	public partial class TBL_M_USER : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _username;
+		
+		private string _password;
+		
+		private string _akses;
+		
+		private System.Nullable<int> _userinfoid;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnusernameChanging(string value);
+    partial void OnusernameChanged();
+    partial void OnpasswordChanging(string value);
+    partial void OnpasswordChanged();
+    partial void OnaksesChanging(string value);
+    partial void OnaksesChanged();
+    partial void OnuserinfoidChanging(System.Nullable<int> value);
+    partial void OnuserinfoidChanged();
+    #endregion
+		
+		public TBL_M_USER()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="VarChar(50)")]
+		public string username
+		{
+			get
+			{
+				return this._username;
+			}
+			set
+			{
+				if ((this._username != value))
+				{
+					this.OnusernameChanging(value);
+					this.SendPropertyChanging();
+					this._username = value;
+					this.SendPropertyChanged("username");
+					this.OnusernameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(50)")]
+		public string password
+		{
+			get
+			{
+				return this._password;
+			}
+			set
+			{
+				if ((this._password != value))
+				{
+					this.OnpasswordChanging(value);
+					this.SendPropertyChanging();
+					this._password = value;
+					this.SendPropertyChanged("password");
+					this.OnpasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_akses", DbType="VarChar(50)")]
+		public string akses
+		{
+			get
+			{
+				return this._akses;
+			}
+			set
+			{
+				if ((this._akses != value))
+				{
+					this.OnaksesChanging(value);
+					this.SendPropertyChanging();
+					this._akses = value;
+					this.SendPropertyChanged("akses");
+					this.OnaksesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userinfoid", DbType="Int")]
+		public System.Nullable<int> userinfoid
+		{
+			get
+			{
+				return this._userinfoid;
+			}
+			set
+			{
+				if ((this._userinfoid != value))
+				{
+					this.OnuserinfoidChanging(value);
+					this.SendPropertyChanging();
+					this._userinfoid = value;
+					this.SendPropertyChanged("userinfoid");
+					this.OnuserinfoidChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_ABSEN")]
+	public partial class VW_ABSEN
+	{
+		
+		private int _USERID;
+		
+		private string _BADGENUMBER;
+		
+		private string _NAME;
+		
+		private string _DEPTNAME;
+		
+		private string _GROUPS;
+		
+		private System.Nullable<System.DateTime> _TANGGAL;
+		
+		private string _CHECKTIME;
+		
+		private string _CHECKTYPE;
+		
+		public VW_ABSEN()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERID", DbType="Int NOT NULL")]
+		public int USERID
+		{
+			get
+			{
+				return this._USERID;
+			}
+			set
+			{
+				if ((this._USERID != value))
+				{
+					this._USERID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BADGENUMBER", DbType="VarChar(24)")]
+		public string BADGENUMBER
+		{
+			get
+			{
+				return this._BADGENUMBER;
+			}
+			set
+			{
+				if ((this._BADGENUMBER != value))
+				{
+					this._BADGENUMBER = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME", DbType="VarChar(40)")]
+		public string NAME
+		{
+			get
+			{
+				return this._NAME;
+			}
+			set
+			{
+				if ((this._NAME != value))
+				{
+					this._NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEPTNAME", DbType="VarChar(30)")]
+		public string DEPTNAME
+		{
+			get
+			{
+				return this._DEPTNAME;
+			}
+			set
+			{
+				if ((this._DEPTNAME != value))
+				{
+					this._DEPTNAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GROUPS", DbType="VarChar(30)")]
+		public string GROUPS
+		{
+			get
+			{
+				return this._GROUPS;
+			}
+			set
+			{
+				if ((this._GROUPS != value))
+				{
+					this._GROUPS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TANGGAL", DbType="Date")]
+		public System.Nullable<System.DateTime> TANGGAL
+		{
+			get
+			{
+				return this._TANGGAL;
+			}
+			set
+			{
+				if ((this._TANGGAL != value))
+				{
+					this._TANGGAL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHECKTIME", DbType="VarChar(50)")]
+		public string CHECKTIME
+		{
+			get
+			{
+				return this._CHECKTIME;
+			}
+			set
+			{
+				if ((this._CHECKTIME != value))
+				{
+					this._CHECKTIME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHECKTYPE", DbType="VarChar(1)")]
+		public string CHECKTYPE
+		{
+			get
+			{
+				return this._CHECKTYPE;
+			}
+			set
+			{
+				if ((this._CHECKTYPE != value))
+				{
+					this._CHECKTYPE = value;
 				}
 			}
 		}
