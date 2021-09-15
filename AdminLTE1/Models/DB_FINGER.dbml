@@ -300,6 +300,18 @@
       <Column Name="CHECKTYPE" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.VW_DAILY_RESULT_GROUP" Member="VW_DAILY_RESULT_GROUPs">
+    <Type Name="VW_DAILY_RESULT_GROUP">
+      <Column Name="kelompokdesc" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="QTY" Type="System.Decimal" DbType="Decimal(38,4)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_DAILY_GROUP_PERSON" Member="VW_DAILY_GROUP_PERSONs">
+    <Type Name="VW_DAILY_GROUP_PERSON">
+      <Column Name="GROUP_BORONGAN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="COUNTPERSON" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.EXTRACT_DATA_ABSEN" Method="EXTRACT_DATA_ABSEN">
     <Return Type="System.Int32" />
   </Function>

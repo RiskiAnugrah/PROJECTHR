@@ -4558,6 +4558,7 @@
     <Content Include="Views\Report\rptGajiBorongan.cshtml" />
     <Content Include="Views\Home\Index - Copy.cshtml" />
     <Content Include="Views\Account\FrmListUser.cshtml" />
+    <Content Include="Views\Chart\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -4567,6 +4568,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ChartController.cs" />
     <Compile Include="Controllers\CHECKINOUTController.cs" />
     <Compile Include="Controllers\DEPARTMENTController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
@@ -4607,17 +4609,13 @@
     <Compile Include="Report\rptSLIP.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Report\rptSLIP1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rptSLIP.rpt</DependentUpon>
-    </Compile>
     <Compile Include="Report\rptSlipGroupBorongan.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptSlipGroupBorongan.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Repository\ICharts.cs" />
     <Compile Include="Security\SessionCheck.cs" />
   </ItemGroup>
   <ItemGroup>
