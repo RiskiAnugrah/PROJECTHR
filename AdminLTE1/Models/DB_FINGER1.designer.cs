@@ -246,6 +246,30 @@ namespace AdminLTE1.Models
 			}
 		}
 		
+		public System.Data.Linq.Table<VW_DAILY_RESULT_GROUP> VW_DAILY_RESULT_GROUPs
+		{
+			get
+			{
+				return this.GetTable<VW_DAILY_RESULT_GROUP>();
+			}
+		}
+		
+		public System.Data.Linq.Table<VW_DAILY_GROUP_PERSON> VW_DAILY_GROUP_PERSONs
+		{
+			get
+			{
+				return this.GetTable<VW_DAILY_GROUP_PERSON>();
+			}
+		}
+		
+		public System.Data.Linq.Table<VW_MONHTLY_RESULT_GROUP> VW_MONHTLY_RESULT_GROUPs
+		{
+			get
+			{
+				return this.GetTable<VW_MONHTLY_RESULT_GROUP>();
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.EXTRACT_DATA_ABSEN")]
 		public int EXTRACT_DATA_ABSEN()
 		{
@@ -5189,6 +5213,141 @@ namespace AdminLTE1.Models
 				if ((this._CHECKTYPE != value))
 				{
 					this._CHECKTYPE = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_DAILY_RESULT_GROUP")]
+	public partial class VW_DAILY_RESULT_GROUP
+	{
+		
+		private string _kelompokdesc;
+		
+		private System.Nullable<decimal> _QTY;
+		
+		public VW_DAILY_RESULT_GROUP()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_kelompokdesc", DbType="VarChar(30)")]
+		public string kelompokdesc
+		{
+			get
+			{
+				return this._kelompokdesc;
+			}
+			set
+			{
+				if ((this._kelompokdesc != value))
+				{
+					this._kelompokdesc = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QTY", DbType="Decimal(38,4)")]
+		public System.Nullable<decimal> QTY
+		{
+			get
+			{
+				return this._QTY;
+			}
+			set
+			{
+				if ((this._QTY != value))
+				{
+					this._QTY = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_DAILY_GROUP_PERSON")]
+	public partial class VW_DAILY_GROUP_PERSON
+	{
+		
+		private string _GROUP_BORONGAN;
+		
+		private System.Nullable<int> _COUNTPERSON;
+		
+		public VW_DAILY_GROUP_PERSON()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GROUP_BORONGAN", DbType="VarChar(50)")]
+		public string GROUP_BORONGAN
+		{
+			get
+			{
+				return this._GROUP_BORONGAN;
+			}
+			set
+			{
+				if ((this._GROUP_BORONGAN != value))
+				{
+					this._GROUP_BORONGAN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COUNTPERSON", DbType="Int")]
+		public System.Nullable<int> COUNTPERSON
+		{
+			get
+			{
+				return this._COUNTPERSON;
+			}
+			set
+			{
+				if ((this._COUNTPERSON != value))
+				{
+					this._COUNTPERSON = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_MONHTLY_RESULT_GROUP")]
+	public partial class VW_MONHTLY_RESULT_GROUP
+	{
+		
+		private string _kelompokdesc;
+		
+		private System.Nullable<decimal> _QTY;
+		
+		public VW_MONHTLY_RESULT_GROUP()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_kelompokdesc", DbType="VarChar(30)")]
+		public string kelompokdesc
+		{
+			get
+			{
+				return this._kelompokdesc;
+			}
+			set
+			{
+				if ((this._kelompokdesc != value))
+				{
+					this._kelompokdesc = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QTY", DbType="Decimal(38,4)")]
+		public System.Nullable<decimal> QTY
+		{
+			get
+			{
+				return this._QTY;
+			}
+			set
+			{
+				if ((this._QTY != value))
+				{
+					this._QTY = value;
 				}
 			}
 		}

@@ -2254,8 +2254,12 @@
     <Content Include="Views\Report\rptGajiBorongan.cshtml" />
     <Content Include="Views\Home\Index - Copy.cshtml" />
     <Content Include="Views\Account\FrmListUser.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\CHECKINOUT\frm_manualabsens.cshtml" />
     <Content Include="Views\CHECKINOUT\FormManualAbsen.cshtml" />
+=======
+    <Content Include="Views\Chart\Index.cshtml" />
+>>>>>>> 6bc3932610362b5a763808bd6d471793489dc34d
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2265,6 +2269,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ChartController.cs" />
     <Compile Include="Controllers\CHECKINOUTController.cs" />
     <Compile Include="Controllers\DEPARTMENTController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
@@ -2273,11 +2278,14 @@
     <Compile Include="Models\DB_FINGER.cs">
       <DependentUpon>DB_FINGER.dbml</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Models\DB_FINGER1.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DB_FINGER.dbml</DependentUpon>
     </Compile>
+=======
+>>>>>>> 6bc3932610362b5a763808bd6d471793489dc34d
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -2303,6 +2311,7 @@
       <DependentUpon>rptSlipGroupBorongan.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Repository\ICharts.cs" />
     <Compile Include="Security\SessionCheck.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2432,7 +2441,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+<<<<<<< HEAD
     <Folder Include="obj\" />
+=======
+>>>>>>> 6bc3932610362b5a763808bd6d471793489dc34d
     <Folder Include="ReportFORM\" />
     <Folder Include="Views\DEPARTMENT\" />
     <Folder Include="Views\Login\" />

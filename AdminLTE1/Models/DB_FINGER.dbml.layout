@@ -122,5 +122,23 @@
         <elementListCompartment Id="4e3605e6-14aa-4219-87fd-2e79e9f84f19" absoluteBounds="4.765, 4.71, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="22f82ac2-c4f6-4bc7-92c2-7caf96e5d516" isExpanded="false" absoluteBounds="2.625, 4.25, 2, 0.45">
+      <DataClassMoniker Name="/DB_FINGERDataContext/VW_DAILY_RESULT_GROUP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4551fb82-fb35-48be-b4a3-78152cb08b25" absoluteBounds="2.64, 4.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="feb3f459-ee44-4165-a0bc-5123d736c317" isExpanded="false" absoluteBounds="0.5, 4.875, 2, 0.45">
+      <DataClassMoniker Name="/DB_FINGERDataContext/VW_DAILY_GROUP_PERSON" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dad4c8f3-640c-4efc-96ea-cc3704fd3c91" absoluteBounds="0.51500000000000012, 5.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="448d3d93-ee25-4da6-95f2-1687cbf4fc0b" isExpanded="false" absoluteBounds="2.625, 4.875, 2, 0.45">
+      <DataClassMoniker Name="/DB_FINGERDataContext/VW_MONHTLY_RESULT_GROUP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="70d82a08-6f82-4d54-b7e2-6b4799c577d2" absoluteBounds="2.64, 5.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>
