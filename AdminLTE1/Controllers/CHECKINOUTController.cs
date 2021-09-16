@@ -19,6 +19,11 @@ namespace AdminLTE1.Controllers
             return View();
         }
 
+        public ActionResult FormManualAbsen()
+        {
+            return View();
+        }
+
 
         [HttpPost]
         public ActionResult listAbsen(string paramst, int take, int skip, IEnumerable<Kendo.DynamicLinq.Sort> sort, Kendo.DynamicLinq.Filter filter)
@@ -72,9 +77,23 @@ namespace AdminLTE1.Controllers
                 return Json(new { remarks = ex.ToString(), STATUS = false });
             }
         }
+        [HttpPost]
+        public ActionResult insertabsenmanula(CHECKINOUT s_tblam)
+        {
+            try
+            {
+                pb_db_ctx = new DB_FINGERDataContext();
+                pb_db_ctx.cusp_insert_absenmanual(s_tblam.USERID, s_tblam.CHECKTIME, s_tblam.CHECKTYPE);
+
+                return Json(new { status = true, remarks = "data berhasil ditambahkan" });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { status = true, remarks = "gagal karena " + ex.ToString() });
+            }
+        }
 
 
-       
 
 
     }

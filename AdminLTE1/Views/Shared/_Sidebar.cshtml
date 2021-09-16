@@ -43,14 +43,14 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-           
+
                     @if (Session["AKSES"].ToString() != "PRODUKSI")
                     {
                         <li><a href="@Url.Action("INDEX", "PAYROLL")">Upah</a></li>
 
                         <li><a href="@Url.Action("INDEX", "CHECKINOUT")">Absensi</a></li>
 
-
+                     
                         <li><a href="@Url.Action("frm_calculate_daily", "PAYROLL")">Calculate</a></li>
                     }
 

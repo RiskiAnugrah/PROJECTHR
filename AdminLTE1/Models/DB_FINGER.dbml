@@ -323,4 +323,10 @@
     <Parameter Name="params" Type="System.String" DbType="VarChar(20)" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.cusp_insert_absenmanual" Method="cusp_insert_absenmanual">
+    <Parameter Name="userid" Type="System.Int32" DbType="Int" />
+    <Parameter Name="checktime" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="type" Type="System.String" DbType="VarChar(5)" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

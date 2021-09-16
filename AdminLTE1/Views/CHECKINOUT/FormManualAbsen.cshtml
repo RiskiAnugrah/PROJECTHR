@@ -1,10 +1,9 @@
 ﻿
 @{
-    ViewBag.Title = "frm_inputUpah";
+    ViewBag.Title = "FormManualAbsen";
     ViewBag.pathParent = Url.Content("~").Substring(0, Url.Content("~").Length - 1);
     Layout = "~/Views/Shared/_LayoutBlank.cshtml";
 }
-
 <head>
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="~/Content/Login/vendor/bootstrap/css/bootstrap.min.css">
@@ -17,40 +16,35 @@
 </head>
 <input type="hidden" id="urlPath" name="urlPath" value="@ViewBag.pathParent" />
 
-<form class="form-horizontal" >
+<form class="form-horizontal">
 
     <div class="modal-body row" style="font-size:15px;">
         <div class="col-md-6">
-           
 
-                <label for="fname">Karyawan :</label>
-                <input type="text" id="empid" name="empid"  class="input-group"><br>
 
-                <label for="fname">Upah :</label>
-                <input type="number" id="upah" name="upah"  class="input-group"><br>
-            
-                <label for="fname">Tanggal Awal :</label>
-                <input type="text" id="tglawal" name="tglawal"  class="input-group"><br>
+            <label for="fname">Karyawan :</label>
+            <input type="text" class="input-group" style="width:250px" id="empid"><br>
 
-                <label for="fname">Tanggal Akhir :</label>
-                <input type="text" id="tglakhir" name="tglakhir" class="input-group"><br>
-                <br>
-                <button id="btn_submit" class="btn-primary">INSERT</button>
-                <button id="btn_cancel" class="btn-warning">CANCEL</button>
-            </div>
-            </div>
-           
+            <label for="fname">Tanggal Dan Jam :</label>
+            <input type="text" id="tglawal" name="tglawal" class="input-group"><br>
+
+            <label for="fname">Cek IN/OUT :</label>
+            <input type="text" class="form-control " style="width:100px"  id="ddl_cekin"><br>                                                                         
+
+            <br>
+            <button id="btn_submit" class="btn-primary">INSERT</button>
+            <button id="btn_cancel" class="btn-warning">CANCEL</button>
+        </div>
+    </div>
+
 </form>
 <script>
     var p_nik = "";
     $(document).ready(function () {
-        
-
-
         $("#tglawal").kendoDatePicker({
             value: new Date(),
             dateInput: true,
-            format: "yyyy-MM-dd"
+            format: "yyyy-MM-dd hh:mm:ss"
         });
 
         $("#tglakhir").kendoDatePicker({
@@ -74,35 +68,45 @@
           },
           filter: "contains",
           dataTextField: "VALUE",
-        
-          placeholder: "Select Karyawan...",         
+
+          placeholder: "Select Karyawan...",
           change: function (e) {
               var value = this.value();
               var nik = value.substr(0, value.indexOf(' '));
               p_nik = nik;
           },
       });
-
-
-    
     });
+
+    $("#ddl_cekin").kendoDropDownList({
+        dataSource: [
+            { text: "IN", value: "I" },
+            { text: "OUT", value: "O" }
+        ],
+        dataTextField: "text",
+        dataValueField: "value"
+    }).data("kendoDropDownList");
+
 
     $("#btn_cancel").click(function () {
 
-        
+
         window.parent.$("#dv_add").data("kendoWindow").close();
-         
+
 
     });
+
+    
 
     $("#btn_submit").click(function () {
         var conf = confirm("Apakah inputan anda sudah benar?");
         if (conf) {
             var i_cls_data = {
-                notes: p_nik,
-                active_date_start: $("#tglawal").val(),
-                active_date_end: $("#tglakhir").val(),
-                amount: $("#upah").val()
+                userid: p_nik,
+                checktime: $("#tglawal").val(),
+                checktype: $("#ddl_cekin").val()
+                
+
 
             }
 
@@ -110,7 +114,7 @@
                 type: "POST",
                 dataType: "json",
                 contentType: "application/json",
-                url: $("#urlPath").val() + "/PAYROLL/insertUpah",
+                url: $("#urlPath").val() + "/CHECKINOUT/insertabsenmanula",
                 data: JSON.stringify(i_cls_data),
                 success: function (response) {
                     if (response.status == true) {
@@ -123,8 +127,8 @@
                 }
 
             });
-        } 
-  
+        }
+
     });
 
 </script>

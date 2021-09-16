@@ -22,14 +22,19 @@
 </style>
 
 <input type="hidden" id="urlPath" name="urlPath" value="@ViewBag.pathParent" />
+<div id="dv_add"></div>
 <form class="form-inline">
     GROUP : <input type="text" class="form-control " style="width:100px" id="ddl_group">
     DEPARTMENT : <input type="text" class="form-control" id="ddl_department">
     KARYAWAN : <input type="text" class="form-control" style="width:250px" id="empid">
+    <button type="button" style="" class="btn btn-primary"  onclick="tambahAbsen()">Absen Manual</button>
+ 
 </form>
     <BR>
 <div id="dv_grid"  style="background-color:#f6f6f6;margin-top:5px;width:97%;font-size:15px;" class="col-md-12"> </div>
+
 <script>
+
     var p_nik = "";
    
     $(document).ready(function () {
@@ -123,6 +128,31 @@
         }).data("kendoDropDownList");
 
     });
+    $(document).ready(function () {
+        $("#dv_add").kendoWindow({
+            width: 360,
+            height: 635,
+            iframe: true,
+            modal: true,
+            resizable: false,
+            close: onModalClose,
+            visible: false
+        }).data("kendoWindow");
+
+    });
+
+
+    function onModalClose() {
+
+    }
+
+    function tambahAbsen() {
+        var win = $("#dv_add").data("kendoWindow");
+        win.title("TAMBAH ABSENSI");
+        win.refresh({ url: $("#urlPath").val() + '/CHECKINOUT/FormManualAbsen' });
+
+        win.center().open();
+    }
 
     function editor_tipe(container, options) {
         $('<input data-text-field="text" data-value-field="value" data-bind="value:CHECKTYPE"/>')
