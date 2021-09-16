@@ -4,7 +4,44 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.pathParent = Url.Content("~").Substring(0, Url.Content("~").Length - 1);
 }
+<head>
+    <style>
+        article {
+  position: absolute;
+  margin-top:180px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  padding: 20px;
+}
 
+h1 {
+  font-size: 1.75rem;
+  margin: 0 0 0.75rem 0;
+}
+
+/* Pattern styles */
+.container {
+  display: table;
+  width: 100%;
+}
+
+.left-half {
+  background-color: #ff9e2c;
+  position: absolute;
+  left: 0px;
+  width: 40%;
+}
+
+.right-half {
+  background-color: #b6701e;
+  position: absolute;
+  right: 0px;
+  width: 60%;
+}
+    </style>
+</head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js" type="text/javascript"></script>
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>  
 <input type="hidden" id="urlPath" name="urlPath" value="@ViewBag.pathParent" />
@@ -13,11 +50,20 @@
         <canvas id="myChart" style="height:50vh; width:80vw"> </canvas>
     </div>
 </div>  
-<div Style="font-family: Corbel; font-size: small ;text-align:center " class="row">
-    <div style="width:1000px;height:400px">
-        <canvas id="myChart2" style="height:50vh; width:80vw"> </canvas>
+
+<section class="container">
+    <div class="left-half">
+        <article>
+            <canvas id="myChart2" style="height:50vh; width:80vw"> </canvas>
+        </article>
     </div>
-</div>  
+    <div class="right-half">
+        <article>
+            <canvas id="myChart3" style="height:50vh; width:80vw"> </canvas>
+        </article>
+    </div>
+</section>
+
 
 <script>
     $(document).ready(function () {
@@ -25,12 +71,79 @@
         // run the first time; all subsequent calls will take care of themselves
         setTimeout(execute, 5000);
         setTimeout(attendance, 5000);
+        setTimeout(monthly, 5000);
     });
+
+    function monthly() {
+        $.ajax({
+            type: "POST",
+            url: $("#urlPath").val() + "/Chart/MonthlyChart",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (chData) {
+                setTimeout(execute, 5000);
+                var randomColorGenerator = function () {
+                    return '#' + (Math.random().toString(16) + '0000000').slice(2, 8);
+                };
+                var ctx = $("#myChart3").get(0).getContext("2d");
+                var background_1 = ctx.createLinearGradient(0, 0, 0, 600);
+                background_1.addColorStop(0, '#00a0bd');
+                background_1.addColorStop(1, '#03e3fc');
+                var aData = chData;
+                var aLabels = aData[0];
+                var aDatasets1 = aData[1];
+                var dataT = {
+                    labels: aLabels,
+                    datasets: [{
+                        label: "Hasil Sortir",
+                        data: aDatasets1,
+                        fill: false,
+                        backgroundColor: background_1,
+                        borderColor: randomColorGenerator(),
+                        borderWidth: 1
+                    }]
+                };
+
+                var myNewChart = new Chart(ctx, {
+                    type: 'line',
+                    data: dataT,
+                    options: {
+                        responsive: true,
+                        title: { display: true, text: 'PEROLEHAN HASIL PRODUKSI BULAN INI' },
+                        legend: { position: 'bottom' },
+                        scales: {
+                            xAxes: [{ gridLines: { display: false }, display: true, scaleLabel: { display: false, labelString: '' } }],
+                            yAxes: [{ gridLines: { display: false }, display: true, scaleLabel: { display: false, labelString: '' }, ticks: { stepSize: 1000, beginAtZero: true } }]
+                        },
+                        animation: {
+                            duration: 2,
+                            onComplete: function () {
+                                var chartInstance = this.chart,
+                                    ctx = chartInstance.ctx;
+                                ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                                ctx.textAlign = 'center';
+                                ctx.textBaseline = 'bottom';
+
+                                this.data.datasets.forEach(function (dataset, i) {
+                                    var meta = chartInstance.controller.getDatasetMeta(i);
+                                    meta.data.forEach(function (bar, index) {
+                                        var data = dataset.data[index];
+                                        ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                                    });
+                                });
+                            }
+                        }
+                    }
+                });
+            }
+        });
+
+    }
 
     function execute() {
         $.ajax({
             type: "POST",
-            url: $("#urlPath").val() + "/Chart/NewChart",
+            url: $("#urlPath").val() + "/Chart/newChart",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (chData) {
@@ -40,7 +153,7 @@
                 };
                 var ctx = $("#myChart").get(0).getContext("2d");
                 var background_1 = ctx.createLinearGradient(0, 0, 0, 600);
-                background_1.addColorStop(0, '#00a0bd');
+                background_1.addColorStop(0, 'green');
                 background_1.addColorStop(1, '#03e3fc');
                 var aData = chData;
                 var aLabels = aData[0];
@@ -136,7 +249,7 @@
                         },
                         responsive: true,
                        
-                        indexAxis: 'x'
+                      
                        
                     }
                 });

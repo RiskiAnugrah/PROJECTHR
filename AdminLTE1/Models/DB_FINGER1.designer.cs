@@ -262,6 +262,14 @@ namespace AdminLTE1.Models
 			}
 		}
 		
+		public System.Data.Linq.Table<VW_MONHTLY_RESULT_GROUP> VW_MONHTLY_RESULT_GROUPs
+		{
+			get
+			{
+				return this.GetTable<VW_MONHTLY_RESULT_GROUP>();
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.EXTRACT_DATA_ABSEN")]
 		public int EXTRACT_DATA_ABSEN()
 		{
@@ -5288,6 +5296,51 @@ namespace AdminLTE1.Models
 				if ((this._COUNTPERSON != value))
 				{
 					this._COUNTPERSON = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_MONHTLY_RESULT_GROUP")]
+	public partial class VW_MONHTLY_RESULT_GROUP
+	{
+		
+		private string _kelompokdesc;
+		
+		private System.Nullable<decimal> _QTY;
+		
+		public VW_MONHTLY_RESULT_GROUP()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_kelompokdesc", DbType="VarChar(30)")]
+		public string kelompokdesc
+		{
+			get
+			{
+				return this._kelompokdesc;
+			}
+			set
+			{
+				if ((this._kelompokdesc != value))
+				{
+					this._kelompokdesc = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QTY", DbType="Decimal(38,4)")]
+		public System.Nullable<decimal> QTY
+		{
+			get
+			{
+				return this._QTY;
+			}
+			set
+			{
+				if ((this._QTY != value))
+				{
+					this._QTY = value;
 				}
 			}
 		}
