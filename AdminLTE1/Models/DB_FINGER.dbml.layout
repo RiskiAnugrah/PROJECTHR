@@ -110,12 +110,6 @@
         <elementListCompartment Id="80e7abc8-1722-491d-b840-90888f264b2e" absoluteBounds="2.64, 4.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="f065daa3-d82a-4998-908c-a2d1edc0d2b2" isExpanded="false" absoluteBounds="4.75, 3.625, 2, 0.45">
-      <DataClassMoniker Name="/DB_FINGERDataContext/TBL_M_USER" />
-      <nestedChildShapes>
-        <elementListCompartment Id="33a5cb6d-3dbd-4cdb-8b74-ceb0582e254e" absoluteBounds="4.765, 4.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="70baad73-e58f-4c55-867a-c57dd095c50e" isExpanded="false" absoluteBounds="4.75, 4.25, 2, 0.45">
       <DataClassMoniker Name="/DB_FINGERDataContext/VW_ABSEN" />
       <nestedChildShapes>
@@ -138,6 +132,12 @@
       <DataClassMoniker Name="/DB_FINGERDataContext/VW_MONHTLY_RESULT_GROUP" />
       <nestedChildShapes>
         <elementListCompartment Id="70d82a08-6f82-4d54-b7e2-6b4799c577d2" absoluteBounds="2.64, 5.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bb779816-3080-4ab4-92e3-26bcddec040e" isExpanded="false" absoluteBounds="4.75, 3.625, 2, 0.45">
+      <DataClassMoniker Name="/DB_FINGERDataContext/TBL_M_USER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f7458fa7-0355-4ca7-a6d3-713d46b9c9f3" absoluteBounds="4.765, 4.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

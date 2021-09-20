@@ -55,7 +55,7 @@
 
             $("#dv_grid").kendoGrid({
                 dataSource: {
-                    batch: true,
+                    type: "json",
                     transport: {
                         read: {
                             url: $("#urlPath").val() + "/ACCOUNT/listuser",
@@ -89,8 +89,11 @@
                             }
                         },
                         parameterMap: function (data, operation) {
-              
-                            return kendo.stringify(data)
+                            if (operation == "update") {
+                                data.akses = $("#ddl_akses").val();
+                               
+                            }
+                            return kendo.stringify(data);
                         }
                     },
                     error: function (e) {

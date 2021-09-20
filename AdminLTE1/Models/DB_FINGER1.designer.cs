@@ -230,14 +230,6 @@ namespace AdminLTE1.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<TBL_M_USER> TBL_M_USERs
-		{
-			get
-			{
-				return this.GetTable<TBL_M_USER>();
-			}
-		}
-		
 		public System.Data.Linq.Table<VW_ABSEN> VW_ABSENs
 		{
 			get
@@ -267,6 +259,14 @@ namespace AdminLTE1.Models
 			get
 			{
 				return this.GetTable<VW_MONHTLY_RESULT_GROUP>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBL_M_USER> TBL_M_USERs
+		{
+			get
+			{
+				return this.GetTable<TBL_M_USER>();
 			}
 		}
 		
@@ -4907,164 +4907,6 @@ namespace AdminLTE1.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_M_USER")]
-	public partial class TBL_M_USER : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _username;
-		
-		private string _password;
-		
-		private string _akses;
-		
-		private System.Nullable<int> _userinfoid;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnusernameChanging(string value);
-    partial void OnusernameChanged();
-    partial void OnpasswordChanging(string value);
-    partial void OnpasswordChanged();
-    partial void OnaksesChanging(string value);
-    partial void OnaksesChanged();
-    partial void OnuserinfoidChanging(System.Nullable<int> value);
-    partial void OnuserinfoidChanged();
-    #endregion
-		
-		public TBL_M_USER()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="VarChar(50)")]
-		public string username
-		{
-			get
-			{
-				return this._username;
-			}
-			set
-			{
-				if ((this._username != value))
-				{
-					this.OnusernameChanging(value);
-					this.SendPropertyChanging();
-					this._username = value;
-					this.SendPropertyChanged("username");
-					this.OnusernameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(50)")]
-		public string password
-		{
-			get
-			{
-				return this._password;
-			}
-			set
-			{
-				if ((this._password != value))
-				{
-					this.OnpasswordChanging(value);
-					this.SendPropertyChanging();
-					this._password = value;
-					this.SendPropertyChanged("password");
-					this.OnpasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_akses", DbType="VarChar(50)")]
-		public string akses
-		{
-			get
-			{
-				return this._akses;
-			}
-			set
-			{
-				if ((this._akses != value))
-				{
-					this.OnaksesChanging(value);
-					this.SendPropertyChanging();
-					this._akses = value;
-					this.SendPropertyChanged("akses");
-					this.OnaksesChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userinfoid", DbType="Int")]
-		public System.Nullable<int> userinfoid
-		{
-			get
-			{
-				return this._userinfoid;
-			}
-			set
-			{
-				if ((this._userinfoid != value))
-				{
-					this.OnuserinfoidChanging(value);
-					this.SendPropertyChanging();
-					this._userinfoid = value;
-					this.SendPropertyChanged("userinfoid");
-					this.OnuserinfoidChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_ABSEN")]
 	public partial class VW_ABSEN
 	{
@@ -5349,6 +5191,164 @@ namespace AdminLTE1.Models
 				{
 					this._QTY = value;
 				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_M_USER")]
+	public partial class TBL_M_USER : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _username;
+		
+		private string _password;
+		
+		private string _akses;
+		
+		private System.Nullable<int> _userinfoid;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnusernameChanging(string value);
+    partial void OnusernameChanged();
+    partial void OnpasswordChanging(string value);
+    partial void OnpasswordChanged();
+    partial void OnaksesChanging(string value);
+    partial void OnaksesChanged();
+    partial void OnuserinfoidChanging(System.Nullable<int> value);
+    partial void OnuserinfoidChanged();
+    #endregion
+		
+		public TBL_M_USER()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string username
+		{
+			get
+			{
+				return this._username;
+			}
+			set
+			{
+				if ((this._username != value))
+				{
+					this.OnusernameChanging(value);
+					this.SendPropertyChanging();
+					this._username = value;
+					this.SendPropertyChanged("username");
+					this.OnusernameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string password
+		{
+			get
+			{
+				return this._password;
+			}
+			set
+			{
+				if ((this._password != value))
+				{
+					this.OnpasswordChanging(value);
+					this.SendPropertyChanging();
+					this._password = value;
+					this.SendPropertyChanged("password");
+					this.OnpasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_akses", DbType="VarChar(50)")]
+		public string akses
+		{
+			get
+			{
+				return this._akses;
+			}
+			set
+			{
+				if ((this._akses != value))
+				{
+					this.OnaksesChanging(value);
+					this.SendPropertyChanging();
+					this._akses = value;
+					this.SendPropertyChanged("akses");
+					this.OnaksesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userinfoid", DbType="Int")]
+		public System.Nullable<int> userinfoid
+		{
+			get
+			{
+				return this._userinfoid;
+			}
+			set
+			{
+				if ((this._userinfoid != value))
+				{
+					this.OnuserinfoidChanging(value);
+					this.SendPropertyChanging();
+					this._userinfoid = value;
+					this.SendPropertyChanged("userinfoid");
+					this.OnuserinfoidChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
