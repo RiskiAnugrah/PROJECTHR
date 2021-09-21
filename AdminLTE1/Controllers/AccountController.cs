@@ -71,7 +71,7 @@ namespace AdminLTE1.Controllers
         }
 
         [HttpPost]
-        public ActionResult insertVendorKendo(TBL_M_USER s_tbl_m_vendor)
+        public ActionResult insertuser(TBL_M_USER s_tbl_m_vendor)
         {
             try
             {

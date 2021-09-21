@@ -1,0 +1,135 @@
+﻿
+@{
+    ViewBag.Title = "Form Izin";
+    ViewBag.pathParent = Url.Content("~").Substring(0, Url.Content("~").Length - 1);
+    Layout = "~/Views/Shared/_LayoutBlank.cshtml";
+}
+<head>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+
+</head>
+<input type="hidden" id="urlPath" name="urlPath" value="@ViewBag.pathParent" />
+
+<form class="form-horizontal">
+
+    <div class="modal-body row" style="font-size:15px;">
+        <div class="col-md-6">
+
+
+            <label for="fname">Karyawan :</label>
+            <input type="text" class="input-group" style="width:250px" id="empid"><br>
+
+            <label for="fname">Tanggal :</label>
+            <input type="text" id="tgl" name="tgl" class="input-group"><br>
+
+            <label for="fname">TIPE :</label>
+            <input type="text" class="form-control " style="width:100px" id="ddl_tipe"><br>
+
+            <label for="fname">Keterangan :</label>
+            <input type="text" class="input-group" style="width:250px" id="notes"><br>
+
+            <br>
+            <button id="btn_submit" class="btn-primary">INSERT</button>
+            <button id="btn_cancel" class="btn-warning">CANCEL</button>
+        </div>
+    </div>
+
+</form>
+<script>
+    var p_nik = "";
+    $(document).ready(function () {
+        $("#tgl").kendoDatePicker({
+            value: new Date(),
+            dateInput: true,
+            format: "yyyy-MM-dd"
+        });
+
+     
+
+      $("#empid").kendoAutoComplete({
+          dataSource: {
+            type: "json",
+
+            transport: {
+                  read: {
+                        type: "POST",
+                        contentType: "application/json",
+                        url: $("#urlPath").val() + "/Employee/ReadEmployeeAutoComplete",
+                        cache: false
+                  }
+            }
+          },
+          filter: "contains",
+          dataTextField: "VALUE",
+
+          placeholder: "Select Karyawan...",
+          change: function (e) {
+              var value = this.value();
+              var nik = value.substr(0, value.indexOf(' '));
+              p_nik = nik;
+          },
+      });
+    });
+
+    $("#ddl_tipe").kendoDropDownList({
+        dataSource: [
+            { text: "IZIN PRIBADI", value: "IZIN" },
+            { text: "SAKIT SURAT DOKTER", value: "SAKIT" }
+        ],
+        dataTextField: "text",
+        dataValueField: "value"
+    }).data("kendoDropDownList");
+
+
+    $("#btn_cancel").click(function () {
+
+
+        window.parent.$("#dv_add").data("kendoWindow").close();
+
+
+    });
+
+
+
+    $("#btn_submit").click(function () {
+        var conf = confirm("Apakah inputan anda sudah benar?");
+        if (conf) {
+            var i_cls_data = {
+                BADGENUMBER: p_nik,
+                date: $("#tgl").val(),
+                doc_type: $("#ddl_tipe").val(),
+                note:$("#notes").val()
+
+
+
+
+            }
+
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                contentType: "application/json",
+                url: $("#urlPath").val() + "/Izin/insertIzin",
+                data: JSON.stringify(i_cls_data),
+                success: function (response) {
+                    if (response.status == true) {
+                        alert(response.remarks);
+                        window.parent.$("#dv_add").data("kendoWindow").close();
+                    }
+                    else {
+                        alert("TERJADI ERROR KARENA : " + response.remarks);
+                    }
+                }
+
+            });
+        }
+
+    });
+
+</script>

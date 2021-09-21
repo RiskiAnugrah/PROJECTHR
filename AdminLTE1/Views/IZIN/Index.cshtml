@@ -1,0 +1,259 @@
+﻿
+@{
+    ViewBag.Title = "INPUT IZIN";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.pathParent = Url.Content("~").Substring(0, Url.Content("~").Length - 1);
+}
+
+<style>
+    .customClass {
+        color: red;
+        animation: blink 1s linear infinite;
+    }
+
+    .customClassGreen {
+        color: green;
+        animation: blink 1s linear infinite;
+    }
+
+    .fontpage {
+        font-size: 14px;
+    }
+</style>
+
+<input type="hidden" id="urlPath" name="urlPath" value="@ViewBag.pathParent" />
+<div id="dv_add"></div>
+<form class="form-inline">
+   
+    KARYAWAN : <input type="text" class="form-control" style="width:280px" id="empid">
+    <button type="button" style="" class="btn btn-primary" onclick="tambahIzin()">Input Izin</button>
+
+</form>
+<BR>
+<div id="dv_grid" style="background-color:#f6f6f6;margin-top:5px;width:97%;font-size:15px;" class="col-md-12"> </div>
+
+<script>
+
+    var p_nik = "";
+
+   
+
+       
+
+
+
+    $(document).ready(function () {
+        $("#dv_add").kendoWindow({
+            width: 360,
+            height: 635,
+            iframe: true,
+            modal: true,
+            resizable: false,
+            close: onModalClose,
+            visible: false
+        }).data("kendoWindow");
+
+        //fn_load_grid("");
+        var dataSourceemp = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    type: "POST",
+                    contentType: "application/json",
+                    url: $("#urlPath").val() + "/Employee/ReadEmployeeAutoComplete",
+                    cache: false
+                }
+            }
+        });
+        $("#empid").kendoAutoComplete({
+            dataSource:dataSourceemp,
+            filter: "contains",
+            dataTextField: "VALUE",
+
+            placeholder: "Select Karyawan...",
+            change: function (e) {
+                var value = this.value();
+                var nik = value.substr(0, value.indexOf(' '));
+                p_nik = nik;
+                fn_load_grid(p_nik);
+            },
+        });
+
+    });
+
+
+    function onModalClose() {
+
+    }
+
+    function tambahIzin() {
+        var win = $("#dv_add").data("kendoWindow");
+        win.title("TAMBAH IZIN");
+        win.refresh({ url: $("#urlPath").val() + '/IZIN/FormIzin' });
+
+        win.center().open();
+    }
+
+    function editor_tipe(container, options) {
+        $('<input data-text-field="text" data-value-field="value" data-bind="value:CHECKTYPE"/>')
+        .appendTo(container)
+        .kendoDropDownList({
+            dataSource: [
+                    { text: "IN", value: "I" },
+                    { text: "OUT", value: "O" }
+            ],
+            dataTextField: "text",
+            dataValueField: "value"
+        }).data("kendoDropDownList");
+
+
+    }
+    function fn_load_grid(s_str_userid) {
+        if ($("#dv_grid").data().kendoGrid != null) {
+            $("#dv_grid").data().kendoGrid.destroy();
+            $("#dv_grid").empty();
+        }
+
+        $("#dv_grid").kendoGrid({
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: {
+                        url: $("#urlPath").val() + "/IZIN/listizin?paramst=" +s_str_userid ,
+                        contentType: "application/json",
+                        type: "POST"
+                    },
+                    destroy: {
+                        url: $("#urlPath").val() + "/IZIN/deleteIzin",
+                        contentType: "application/json",
+                        type: "POST",
+                        complete: function (data) {
+                            if (data.status) {
+                                alert("Data berhasil dihapus");
+                                $("#dv_grid").data("kendoGrid").dataSource.read();
+                            } else {
+                                alert(data.responseJSON.remarks);
+                            }
+                        }
+                    },
+                    parameterMap: function (data, operation) {
+
+                        return kendo.stringify(data)
+                    }
+                },
+                error: function (e) {
+                    if (e.errors) {
+                        alert(e.errors);
+                        this.cancelChanges();
+                    }
+                },
+                schema: {
+                    data: "Data",
+                    total: "Total",
+                    model: {
+                        id: "id",
+                        fields: {
+                            userid: { type: "number", editable: false },
+                            doc_no: { type: "string", editable: false },
+                            BADGENUMBER: { type: "string", editable: false },
+                            doc_type: { type: "string", editable: false },
+                            NAME: { type: "string", editable: false },
+                            date: { type: "date", editable: false },
+                            DEPTNAME: { type: "string", editable: false },
+                            note: { type: "string", editable: true },
+
+                        }
+                    }
+
+                },
+                pageSize: 100,
+                serverPaging: true,
+                serverFiltering: true,
+                serverSorting: false,
+
+
+            },
+            height:450,
+            filterable: true,
+            sortable: true,
+            editable: "inline",
+            selectable: "multiple",
+            pageable: {
+                refresh: true,
+                buttonCount: 10,
+                input: true,
+                pageSizes: [50, 100, 200, 300, 500, 1000, 100000],
+                info: true,
+                messages: {
+                }
+            },
+            // toolbar: [{ text: "View", click: addIssue }],
+            columns: [
+
+
+
+              //{
+              //   // field: "PENUMPANG_DESC",
+              //    //title: "<center>TIPE PENUMPANG</center>",
+              //    width: 10,
+              //    template: '<div style="text-align:center;"><input type="checkbox"  class="chkbx" /></div>',
+              //    headerTemplate: '<div style="text-align:center;"><input type="checkbox" id="SelectAll" /></div>'
+              //},
+              //{ command: [{ text: "RESCHEDULE", click: cufn_reschedule }, { text: " BATALKAN ", click: cufn_batalkan }], width: 30 },
+               {
+                   field: "BADGENUMBER",
+                   title: "<center>NIK</center>",
+                   width: 70
+
+               },
+             {
+                  field: "NAME",
+                  title: "<center>NAMA</center>",
+                  width: 70
+
+              },
+              {
+                  field: "date",
+                  title: "<center>TANGGAL</center>",
+                  format: "{0: dd-MM-yyyy}",
+                  width: 40
+
+              },
+             
+              {
+                  field: "tipe",
+                  title: "<center>TIPE</center>",
+                  editor: editor_tipe,
+
+                  width: 40,
+                  template: "#=templateFunction(data)#"
+
+              },
+               {
+                  field: "note",
+                  title: "<center>KETERANGAN</center>",
+                  width: 70
+
+              }
+              , { command: ["destroy"], title: "MANAGE", width: "40px" },
+
+
+
+            ]
+        });
+    }
+
+
+
+    function templateFunction(item) {
+
+        if (item.doc_type == "IZIN") {
+            return "<span class='customClassGreen'>" + "IZIN" + "</span>";
+        }
+        else {
+            return "<span class='customClass'>" + "SAKIT" + "</span>";
+        }
+
+        return item.Estimasi;
+    }
+
+</script>

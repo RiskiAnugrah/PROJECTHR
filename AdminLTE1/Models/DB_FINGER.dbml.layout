@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DB_FINGER">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 16.125" name="DB_FINGER">
   <DataContextMoniker Name="/DB_FINGERDataContext" />
   <nestedChildShapes>
     <classShape Id="7eb9b1a2-a90f-4732-92bd-8a4bb6fb8f46" isExpanded="false" absoluteBounds="2.625, 0.5, 2, 0.45">
@@ -138,6 +138,30 @@
       <DataClassMoniker Name="/DB_FINGERDataContext/TBL_M_USER" />
       <nestedChildShapes>
         <elementListCompartment Id="f7458fa7-0355-4ca7-a6d3-713d46b9c9f3" absoluteBounds="4.765, 4.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="67c00bba-d953-465c-b6ec-e46f7a0212b8" isExpanded="false" absoluteBounds="4.75, 4.875, 2, 0.45">
+      <DataClassMoniker Name="/DB_FINGERDataContext/VW_TRANSAKSI_IZIN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="50f01344-a5e5-4ac5-92d3-c33ec39fc273" absoluteBounds="4.765, 5.335, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e7599d5a-e9f3-4205-8917-a511c09056a2" isExpanded="false" absoluteBounds="0.5, 5.5, 2, 0.45">
+      <DataClassMoniker Name="/DB_FINGERDataContext/TBL_T_IZIN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5cea924d-174f-4a03-843f-1db773872bd8" absoluteBounds="0.51499999999999968, 5.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="80f7a265-b70b-468e-8a29-ea79e69107a7" isExpanded="false" absoluteBounds="2.625, 5.5, 2, 0.45">
+      <DataClassMoniker Name="/DB_FINGERDataContext/TBL_T_LEMBUR" />
+      <nestedChildShapes>
+        <elementListCompartment Id="274581d5-affd-4fe8-8c9f-e38d22bfec05" absoluteBounds="2.64, 5.96, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cae0d596-7551-478f-998f-64e149041c9b" absoluteBounds="4.75, 5.5, 2, 10.424461263020833">
+      <DataClassMoniker Name="/DB_FINGERDataContext/VW_TRANSAKSI_LEMBUR" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f7fc8e15-7cbe-42a1-bf09-ecb262546a89" absoluteBounds="4.765, 5.96, 1.9700000000000002, 9.8644612630208321" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>
