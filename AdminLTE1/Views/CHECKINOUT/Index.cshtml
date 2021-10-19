@@ -5,6 +5,8 @@
     ViewBag.pathParent = Url.Content("~").Substring(0, Url.Content("~").Length - 1);
 }
 
+<script src="~/Scripts/jszip.min.js"></script>
+<script src="~/Scripts/jszip.js"></script>
 <style>
     .customClass {
         color: red;
@@ -174,7 +176,13 @@
             $("#dv_grid").empty();
         }
 
-        $("#dv_grid").kendoGrid({
+        var grid = $("#dv_grid").kendoGrid({
+
+            toolbar: ["excel"],
+            excel: {
+                fileName: "TransaksiPooling.xlsx",
+                filterable: true
+            },
             dataSource: {
                 type: "json",
                 transport: {
@@ -231,7 +239,7 @@
 
 
             },
-            height:500,
+            height:450,
             filterable: true,
             sortable: true,
             editable: "inline",

@@ -12,19 +12,29 @@
             @ViewBag.Title@: -
         }
        PMS
-       
+        @{
+            ViewBag.pathParent = Url.Content("~").Substring(0, Url.Content("~").Length - 1);
+        }
 
 
     </title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     <link rel="icon" type="image/gif" href="~/Content/img/Logo PMS.gif" />
+
+ 
      @Styles.Render("~/Bundles/css")
+
+    <script src="@ViewBag.pathParent/Scripts/jszip.js"></script>
     @Scripts.Render("~/Bundles/js")
     @Scripts.Render("~/bundles/jquery")
+
+    <script src="~/Scripts/flot/jquery.flot.js"></script>
+    <script src="~/Scripts/flot/jquery.flot.min.js"></script>
     @Scripts.Render("~/bundles/bootstrap")
 
     @Scripts.Render("~/bundles/modernizr")
+ 
     @Scripts.Render("~/bundles/kendo")
     @Styles.Render("~/Content/kendo/css")
 
@@ -48,27 +58,18 @@
             </section>
 
             <section class="content">
-                @RenderBody()
+                @RenderBody() 
             </section>
-            <section class="fixed-bottom" style="position:absolute;bottom:0;">
-
-                <footer class="text-center text-white fixed-bottom">
-                    <!-- Grid container -->
-                    <div class="container p-2"></div>
-                    <!-- Grid container -->
-                    <!-- Copyright -->
-                    <div class="text-center text-white p-4" style="height:30px" >
-                        <a class="text-white">© 2021 Copyright:</a>
-                        <a class="text-white" href="https://pelitamekarsemesta.com/">IT SYSTEM DEVELOPMENT PT.PELITA MEKAR SEMESTA</a>
-                    </div>
-                    <!-- Copyright -->
-                </footer>
-
-            </section>
+           
         </div>
-
+        <footer class="main-footer">
+            <strong>Copyright &copy; 2021 <a href="https://pelitamekarsemesta.com">IT SYSTEM DEVELOPMENT PT.PELITA MEKAR SEMESTA.</a> All Rights Reserved</strong>
+       
+           
+        </footer>
         @Html.Partial("_ControlSidebar")
     </div>
+    
 
     <script src="@RouteJs.RouteJsHandler.HandlerUrl"></script>
     <script src="@EnumHandler.HandlerUrl"></script>

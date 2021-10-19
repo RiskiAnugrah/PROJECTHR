@@ -1,0 +1,52 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.pathParent = Url.Content("~").Substring(0, Url.Content("~").Length - 1);
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>IndexFLOT</title>
+    <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="~/Scripts/flot/excanvas.min.js"></script><![endif]-->
+  
+</head>
+<input type="hidden" id="urlPath" name="urlPath" value="@ViewBag.pathParent" />
+<body>
+    <div id="flot-placeholder" style="width: 500px; height: 500px;"></div>
+</body>
+</html>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    //******* 2012 Average Temperature - BAR CHART
+    $.ajax({
+        type: "POST",
+        url: $("#urlPath").val() + "/Chart/MonthlyChart",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (chData) {
+
+            var options = {
+                series: {
+                  
+                    bars: {
+                        // horizontal: true,
+                        show: true,
+                        barWidth: 0.9,
+                        align: 'left',
+                        numbers: { show: true }
+                    }
+                },
+                xaxis: { ticks: eval(r.kg) }
+            };
+
+          
+         
+         
+            }
+        });
+</script>
+
